@@ -1,0 +1,19 @@
+name: almabike
+
+packages:
+  - apps/**
+
+scripts:
+  clean:
+    exec: fvm flutter clean
+  build:
+    run: fvm flutter pub get && fvm flutter pub run build_runner build --delete-conflicting-outputs --fail-on-severe
+    exec:
+      failFast: true
+      concurrency: 1
+  generate_assets:
+    exec: fluttergen
+  auto_fix:
+    exec: fvm flutter fix --apply
+  upgrade_dependencies:
+    exec: fvm flutter pub upgrade --major-versions
