@@ -1,0 +1,33 @@
+{
+  "@@locale": "en",
+  "language": "English",
+  "@language": {
+    "description": "The name of language"
+  },
+  "enter_phone_number": "Введите номер телефона",
+  "@enter_phone_number": {
+    "description": "Подсказка для ввода номера телефона"
+  },
+  "phone_number": "Номер телефона",
+  "@phone_number": {},
+  "get_code": "Получить код",
+  "@get_code": {},
+  "resend_code_in": "Отправить код через 00:{seconds}",
+  "@resend_code_in": {
+    "description": "Время для повторной отправки кода",
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "pageHomeInboxCount": "{count, plural, zero{You have no new messages} one{You have 1 new message} other{You have {count} new messages}}",
+  "@pageHomeInboxCount": {
+    "description": "New messages count on the Home screen",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
+}

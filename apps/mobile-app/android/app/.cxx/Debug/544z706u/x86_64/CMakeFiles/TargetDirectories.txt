@@ -1,0 +1,2 @@
+/Users/tez_mcbook_m3/Desktop/dev/yoko/almabike_app/android/app/.cxx/Debug/544z706u/x86_64/CMakeFiles/edit_cache.dir
+/Users/tez_mcbook_m3/Desktop/dev/yoko/almabike_app/android/app/.cxx/Debug/544z706u/x86_64/CMakeFiles/rebuild_cache.dir

@@ -1,0 +1,31 @@
+name: almabike_app
+description: "Almabike app project"
+
+publish_to: "none"
+
+version: 0.0.0+1
+
+environment:
+  sdk: ^3.6.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  provider: ^6.1.2
+
+  almabike_shared:
+    git:
+      url: git@batyr.beam:beam-flutter/yoko-almabike/mobile-shared.git
+      ref: development
+
+  auto_route: ^9.3.0+1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  auto_route_generator: ^9.3.0
+  flutter_lints: ^5.0.0
+  build_runner: ^2.4.15
+
+flutter:
+  uses-material-design: true

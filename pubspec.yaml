@@ -1,0 +1,9 @@
+name: almabike
+
+environment:
+  sdk: ^3.6.0
+dependencies:
+  melos: ^6.1.0
+dev_dependencies:
+  build_runner: ^2.4.15
+  flutter_lints: ^5.0.0

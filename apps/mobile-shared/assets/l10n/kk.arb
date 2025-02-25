@@ -1,0 +1,33 @@
+{
+  "@@locale": "kk",
+  "language": "Қазақ тілі",
+  "@language": {
+    "description": "Тіл аты"
+  },
+  "enter_phone_number": "Введите номер телефона",
+  "@enter_phone_number": {
+    "description": "Подсказка для ввода номера телефона"
+  },
+  "phone_number": "Номер телефона",
+  "@phone_number": {},
+  "get_code": "Получить код",
+  "@get_code": {},
+  "resend_code_in": "Отправить код через 00:{seconds}",
+  "@resend_code_in": {
+    "description": "Время для повторной отправки кода",
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "pageHomeInboxCount": "{count, plural, zero{Сізде жаңа хабар жоқ}      one{Сізде 1 жаңа хабар бар} other{Сізде {count} жаңа хабар бар}}",
+  "@pageHomeInboxCount": {
+    "description": "Негізгі экрандағы жаңа хабарламалар саны",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
+}

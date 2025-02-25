@@ -1,0 +1,20 @@
+{
+  "buildFiles": [
+    "/Users/tez_mcbook_m3/development/flutter/packages/flutter_tools/gradle/src/main/groovy/CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "/Users/tez_mcbook_m3/Library/Android/sdk/cmake/3.22.1/bin/ninja",
+      "-C",
+      "/Users/tez_mcbook_m3/Desktop/dev/yoko/almabike_app/android/app/.cxx/Debug/544z706u/armeabi-v7a",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "/Users/tez_mcbook_m3/Library/Android/sdk/cmake/3.22.1/bin/ninja",
+    "-C",
+    "/Users/tez_mcbook_m3/Desktop/dev/yoko/almabike_app/android/app/.cxx/Debug/544z706u/armeabi-v7a",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {}
+}
