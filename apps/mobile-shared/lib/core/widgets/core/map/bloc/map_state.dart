@@ -1,10 +1,10 @@
 part of 'map_bloc.dart';
 
 @freezed
-sealed class MapState with _$MapState {
-  const factory MapState.init() = _MapStateLoading;
+sealed class MapBlocState with _$MapBlocState {
+  const factory MapBlocState.init() = _MapBlocStateLoading;
 
-  const factory MapState.bikes({
-    required List<Map<String, dynamic>> bikes,
-  }) = _MapStateBikes;
+  const factory MapBlocState.bikes({
+    required List<Device> bikes,
+  }) = _MapBlocStateBikes;
 }

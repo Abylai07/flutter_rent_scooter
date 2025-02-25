@@ -1,5 +1,6 @@
 import 'package:almabike_shared/almabike_shared.dart';
 import 'package:almabike_shared/core/style/tokens/bike_border_radiuses.dart';
+import 'package:almabike_shared/core/utils/networking/https/models/device_model.dart';
 import 'package:almabike_shared/core/utils/networking/https/rest_client.dart';
 import 'package:almabike_shared/core/widgets/core/bike_button.dart';
 import 'package:almabike_shared/core/widgets/core/bike_container.dart';
@@ -13,145 +14,175 @@ import 'package:provider/provider.dart';
 class BikeModal extends StatelessWidget {
   const BikeModal({super.key, required this.item});
 
-  final Map<String, dynamic> item;
+  final Device item;
 
   @override
   Widget build(BuildContext context) {
     return BikeContainer(
       padding: EdgeInsets.all(16),
       borderRadius: BikeBorderRadiuses.radius32,
-      child: Container(
-        decoration: BoxDecoration(
-          borderRadius: BikeBorderRadiuses.radius24,
-          color: context.theme.whenByValue(
-            light: BikeColors.background.light.element,
-            dark: BikeColors.background.dark.element,
-          ),
-        ),
-        child: Column(
-          children: [
-            Row(
+      child: Column(
+        children: [
+          Container(
+            decoration: BoxDecoration(
+              borderRadius: BikeBorderRadiuses.radius24,
+              color: context.theme.whenByValue(
+                light: BikeColors.background.light.element,
+                dark: BikeColors.background.dark.element,
+              ),
+            ),
+            padding: const EdgeInsets.all(16),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Container(
-                  height: 74,
-                  decoration: BoxDecoration(
-                    color: Colors.pink[100],
-                    borderRadius: BorderRadius.horizontal(
-                      left: Radius.circular(16),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    BikeText(
+                      item.name,
+                      style: BikeTypography.title.medium.copyWith(
+                        color: context.theme.whenByValue(
+                          light: BikeColors.text.light.primary,
+                          dark: BikeColors.text.dark.primary,
+                        ),
+                      ),
                     ),
-                  ),
-                  width: 74,
+                    Row(
+                      children: [
+                        SizedBox(width: 8),
+                        BikeText(
+                          "${item.position?.attributes['batteryLevel'] ?? 0}%",
+                          style: BikeTypography.title.small.copyWith(
+                            color: context.theme.whenByValue(
+                              light: BikeColors.text.light.primary,
+                              dark: BikeColors.text.dark.primary,
+                            ),
+                          ),
+                        ),
+                        SizedBox(width: 6),
+                        Container(
+                          decoration: BoxDecoration(
+                            color: context.theme.whenByValue(
+                              light: BikeColors.text.light.secondary,
+                              dark: BikeColors.text.dark.secondary,
+                            ),
+                            borderRadius: BikeBorderRadiuses.radius4,
+                          ),
+                          child: Container(
+                            height: 10,
+                            width: 22,
+                            margin: EdgeInsets.all(1),
+                            decoration: BoxDecoration(
+                              border: Border.all(
+                                width: 2,
+                                color: context.theme.whenByValue(
+                                  light: BikeColors.background.light.primary,
+                                  dark: BikeColors.background.dark.primary,
+                                ),
+                              ),
+                              color: context.theme.whenByValue(
+                                light: BikeColors.main.light.primary,
+                                dark: BikeColors.main.dark.primary,
+                              ),
+                              borderRadius: BikeBorderRadiuses.radius2,
+                            ),
+                          ),
+                        ),
+                      ],
+                    )
+                  ],
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          BikeText(
-                            "# 123 456",
-                            style: BikeTypography.title.medium.copyWith(
-                              color: context.theme.whenByValue(
-                                light: BikeColors.text.light.primary,
-                                dark: BikeColors.text.dark.primary,
-                              ),
+                SizedBox(height: 8),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      children: [
+                        BikeText(
+                          '${((item.position?.attributes['totalDistance'] as num? ?? 0) / 1000).toInt()} км, ',
+                          style: BikeTypography.title.small.copyWith(
+                            color: context.theme.whenByValue(
+                              light: BikeColors.text.light.secondary,
+                              dark: BikeColors.text.dark.secondary,
                             ),
                           ),
-                          Row(
-                            children: [
-                              SizedBox(width: 8),
-                              BikeText(
-                                "99%",
-                                style: BikeTypography.title.small.copyWith(
-                                  color: context.theme.whenByValue(
-                                    light: BikeColors.text.light.primary,
-                                    dark: BikeColors.text.dark.primary,
-                                  ),
-                                ),
-                              ),
-                              Icon(Icons.battery_full, color: Colors.green),
-                            ],
-                          )
-                        ],
-                      ),
-                      SizedBox(height: 4),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Row(
-                            children: [
-                              BikeText(
-                                "76 км, ",
-                                style: BikeTypography.title.small.copyWith(
-                                  color: context.theme.whenByValue(
-                                    light: BikeColors.text.light.secondary,
-                                    dark: BikeColors.text.dark.secondary,
-                                  ),
-                                ),
-                              ),
-                              BikeText(
-                                "запас хода",
-                                style: BikeTypography.body.small.copyWith(
-                                  color: context.theme.whenByValue(
-                                    light: BikeColors.text.light.secondary,
-                                    dark: BikeColors.text.dark.secondary,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                          BikeText(
-                            "≈ 4 часа",
-                            style: BikeTypography.body.small.copyWith(
-                              color: context.theme.whenByValue(
-                                light: BikeColors.text.light.secondary,
-                                dark: BikeColors.text.dark.secondary,
-                              ),
+                        ),
+                        BikeText(
+                          "запас хода",
+                          style: BikeTypography.body.small.copyWith(
+                            color: context.theme.whenByValue(
+                              light: BikeColors.text.light.secondary,
+                              dark: BikeColors.text.dark.secondary,
                             ),
                           ),
-                        ],
+                        ),
+                      ],
+                    ),
+                    BikeText(
+                      "≈ 4 часа",
+                      style: BikeTypography.body.small.copyWith(
+                        color: context.theme.whenByValue(
+                          light: BikeColors.text.light.secondary,
+                          dark: BikeColors.text.dark.secondary,
+                        ),
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ],
             ),
-            SizedBox(height: 16),
-            Row(
-              children: [
-                Flexible(
-                  child: BikeButton(
-                    title: 'Заблокировать',
-                    onPressed: () async {
-                      final result = await RestClient().app.lock(12);
-                      showSnackBar(
-                        context,
-                        name: result['deviceId'].toString(),
-                        isLock: true,
-                      );
-                    },
-                  ),
+          ),
+          SizedBox(height: 16),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              BikeModalActionWidget(
+                title: '10:20',
+                description: 'В пути',
+              ),
+              BikeModalActionWidget(
+                title: '550 ₸',
+                description: 'Цена',
+              ),
+              BikeModalActionWidget(
+                title: '1 км',
+                description: 'Растояние',
+              ),
+            ],
+          ),
+          SizedBox(height: 16),
+          Row(
+            children: [
+              Flexible(
+                child: BikeButton(
+                  title: 'Заблокировать',
+                  onPressed: () async {
+                    final result = await RestClient().app.lock(item.id);
+                    showSnackBar(
+                      context,
+                      name: result['deviceId'].toString(),
+                      isLock: true,
+                    );
+                  },
                 ),
-                SizedBox(width: 8),
-                Flexible(
-                  child: BikeButton(
-                    title: 'Разблокировать',
-                    onPressed: () async {
-                      final result = await RestClient().app.unlock(12);
-                      showSnackBar(
-                        context,
-                        name: result['deviceId'].toString(),
-                        isLock: false,
-                      );
-                    },
-                  ),
+              ),
+              SizedBox(width: 8),
+              Flexible(
+                child: BikeButton(
+                  title: 'Разблокировать',
+                  onPressed: () async {
+                    final result = await RestClient().app.unlock(item.id);
+                    showSnackBar(
+                      context,
+                      name: result['deviceId'].toString(),
+                      isLock: false,
+                    );
+                  },
                 ),
-              ],
-            ),
-          ],
-        ),
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }
@@ -165,6 +196,51 @@ class BikeModal extends StatelessWidget {
   }
 }
 
+class BikeModalActionWidget extends StatelessWidget {
+  final String title;
+  final String description;
+  const BikeModalActionWidget({
+    super.key,
+    required this.title,
+    required this.description,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    return BikeContainer(
+      height: 92,
+      width: size.width / 4,
+      borderRadius: BikeBorderRadiuses.radius24,
+      withBorder: true,
+      withShadow: false,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          BikeText(
+            title,
+            style: BikeTypography.title.small.copyWith(
+              color: context.theme.whenByValue(
+                light: BikeColors.text.light.primary,
+                dark: BikeColors.text.dark.primary,
+              ),
+            ),
+          ),
+          BikeText(
+            description,
+            style: BikeTypography.body.small.copyWith(
+              color: context.theme.whenByValue(
+                light: BikeColors.text.light.secondary,
+                dark: BikeColors.text.dark.secondary,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
 @RoutePage()
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -174,108 +250,97 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
+  Device? device;
   @override
   Widget build(BuildContext context) {
     return BikeScaffold(
       body: Stack(
         children: [
-          Container(
-            color: Colors.pink[100],
-            child: BikeMapWidget(
-              onRegionChanged: (region) {
-                print('region is $region');
-              },
-            ),
-          ),
-          SafeArea(
-            child: Padding(
-              padding: const EdgeInsets.all(16),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      BikeIconButton(
-                        icon: BikeIcons.question_small,
-                        onPressed: () {
-                          context.read<ThemeUtil>().changeTheme();
-                        },
-                        size: BikeIconButtonSizeL(),
-                      ),
-                      BikeContainer(
-                        padding: EdgeInsets.all(12),
-                        borderRadius: BikeBorderRadiuses.radius16,
-                        child: BikeText(
-                          '369 Б',
-                          style: BikeTypography.body.medium,
+          BikeMapWidget(
+            child: SafeArea(
+              child: Padding(
+                padding: const EdgeInsets.all(16),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        BikeIconButton(
+                          icon: BikeIcons.question_small,
+                          onPressed: () {
+                            context.read<ThemeUtil>().changeTheme();
+                          },
+                          size: BikeIconButtonSizeL(),
                         ),
-                      ),
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          BikeIconButton(
-                            icon: BikeIcons.user,
-                            onPressed: () {},
-                            size: BikeIconButtonSizeL(),
+                        BikeContainer(
+                          padding: EdgeInsets.all(12),
+                          borderRadius: BikeBorderRadiuses.radius16,
+                          child: BikeText(
+                            '369 Б',
+                            style: BikeTypography.body.medium,
                           ),
-                          InkWell(
-                            onTap: () {},
-                            child: BikeContainer(
-                              shape: BoxShape.circle,
-                              height: 80,
-                              width: 80,
-                              color: context.theme.whenByValue(
-                                light: BikeColors.background.light.button,
-                                dark: BikeColors.background.dark.button,
-                              ),
-                              child: Icon(
-                                BikeIcons.scan,
-                                size: 40,
+                        ),
+                      ],
+                    ),
+                    Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            BikeIconButton(
+                              icon: BikeIcons.user,
+                              onPressed: () {},
+                              size: BikeIconButtonSizeL(),
+                            ),
+                            InkWell(
+                              onTap: () {},
+                              child: BikeContainer(
+                                shape: BoxShape.circle,
+                                height: 80,
+                                width: 80,
                                 color: context.theme.whenByValue(
-                                  light: BikeColors.icon.light.white,
-                                  dark: BikeColors.icon.dark.white,
+                                  light: BikeColors.background.light.button,
+                                  dark: BikeColors.background.dark.button,
+                                ),
+                                child: Icon(
+                                  BikeIcons.scan,
+                                  size: 40,
+                                  color: context.theme.whenByValue(
+                                    light: BikeColors.icon.light.white,
+                                    dark: BikeColors.icon.dark.white,
+                                  ),
                                 ),
                               ),
                             ),
-                          ),
-                          BikeIconButton(
-                            icon: BikeIcons.lock,
-                            onPressed: () {},
-                            size: BikeIconButtonSizeL(),
-                          ),
-                        ],
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 16),
-                        child: FutureBuilder(
-                          future: RestClient().app.fetchDevices(),
-                          builder: (context, snapshot) {
-                            if (snapshot.connectionState ==
-                                ConnectionState.waiting) {
-                              return Center(child: CircularProgressIndicator());
-                            }
-                            if (snapshot.hasError) {
-                              return Center(
-                                  child: Text('Ошибка загрузки данных'));
-                            }
-                            final data = snapshot.data;
-                            return SizedBox(
-                              height: 170,
-                              child: BikeModal(item: data[1]),
-                            );
-                          },
+                            BikeIconButton(
+                              icon: BikeIcons.lock,
+                              onPressed: () {},
+                              size: BikeIconButtonSizeL(),
+                            ),
+                          ],
                         ),
-                      ),
-                    ],
-                  ),
-                ],
+                        if (device != null)
+                          Padding(
+                            padding: const EdgeInsets.only(top: 16),
+                            child: BikeModal(item: device!),
+                          ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
+            onMapTapped: () {
+              setState(() {
+                device = null;
+              });
+            },
+            onDeviceTapped: (tappedDevice) {
+              setState(() {
+                device = tappedDevice;
+              });
+            },
           ),
         ],
       ),

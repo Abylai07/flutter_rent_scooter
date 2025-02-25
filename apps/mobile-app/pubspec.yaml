@@ -12,13 +12,12 @@ dependencies:
   flutter:
     sdk: flutter
   provider: ^6.1.2
-
-  almabike_shared:
-    git:
-      url: git@batyr.beam:beam-flutter/yoko-almabike/mobile-shared.git
-      ref: development
-
+  almabike_shared: 0.0.1+1
   auto_route: ^9.3.0+1
+
+dependency_overrides:
+  almabike_shared:
+    path: ../mobile-shared
 
 dev_dependencies:
   flutter_test:

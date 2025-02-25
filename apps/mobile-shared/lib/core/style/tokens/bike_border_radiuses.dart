@@ -3,6 +3,14 @@ import 'package:figma_squircle/figma_squircle.dart';
 /// Border radiuses for the bike app
 class BikeBorderRadiuses {
   static const cornerSmoothing = 100.0;
+  static final radius2 = SmoothBorderRadius(
+    cornerRadius: 2,
+    cornerSmoothing: cornerSmoothing,
+  );
+  static final radius4 = SmoothBorderRadius(
+    cornerRadius: 4,
+    cornerSmoothing: cornerSmoothing,
+  );
   static final radius12 = SmoothBorderRadius(
     cornerRadius: 12,
     cornerSmoothing: cornerSmoothing,

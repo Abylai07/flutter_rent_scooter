@@ -11,8 +11,12 @@ scripts:
     exec:
       failFast: true
       concurrency: 1
-  generate_assets:
+  get:
+    exec: fvm flutter pub get
+  fluttergen:
     exec: fluttergen
+  gen_l10n:
+    exec: fvm flutter gen-l10n
   auto_fix:
     exec: fvm flutter fix --apply
   upgrade_dependencies:

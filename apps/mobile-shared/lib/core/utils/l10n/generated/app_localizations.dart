@@ -115,6 +115,18 @@ abstract class AppLocalizations {
   /// **'Номер телефона'**
   String get phone_number;
 
+  /// Далее
+  ///
+  /// In en, this message translates to:
+  /// **'Далее'**
+  String get next;
+
+  /// Начать поездку
+  ///
+  /// In en, this message translates to:
+  /// **'Начать поездку'**
+  String get start_ride;
+
   /// No description provided for @get_code.
   ///
   /// In en, this message translates to:
@@ -127,11 +139,125 @@ abstract class AppLocalizations {
   /// **'Отправить код через 00:{seconds}'**
   String resend_code_in(int seconds);
 
-  /// New messages count on the Home screen
+  /// Количество новых сообщений на главном экране
   ///
   /// In en, this message translates to:
-  /// **'{count, plural, zero{You have no new messages} one{You have 1 new message} other{You have {count} new messages}}'**
+  /// **'{count, plural, zero{У вас нет новых сообщений} one{У вас 1 новое сообщение} other{У вас {count} новых сообщений}}'**
   String pageHomeInboxCount(int count);
+
+  /// No description provided for @onboadring_0_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Добро пожаловать в Almaty Bike'**
+  String get onboadring_0_title;
+
+  /// No description provided for @onboadring_0_description_0.
+  ///
+  /// In en, this message translates to:
+  /// **'Быстрый, удобный и экологичный способ передвижения!'**
+  String get onboadring_0_description_0;
+
+  /// No description provided for @onboadring_0_description_1.
+  ///
+  /// In en, this message translates to:
+  /// **'Разблокируйте велосипед в пару кликов и наслаждайтесь поездкой'**
+  String get onboadring_0_description_1;
+
+  /// No description provided for @onboadring_0_description_2.
+  ///
+  /// In en, this message translates to:
+  /// **'Соблюдайте правила безопасности и ПДД'**
+  String get onboadring_0_description_2;
+
+  /// No description provided for @onboadring_1_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Как начать поездку?'**
+  String get onboadring_1_title;
+
+  /// No description provided for @onboadring_1_description_0.
+  ///
+  /// In en, this message translates to:
+  /// **'Найдите ближайший электробайк на карте'**
+  String get onboadring_1_description_0;
+
+  /// No description provided for @onboadring_1_description_1.
+  ///
+  /// In en, this message translates to:
+  /// **'Отсканируйте QR-код для разблокировки'**
+  String get onboadring_1_description_1;
+
+  /// No description provided for @onboadring_1_description_2.
+  ///
+  /// In en, this message translates to:
+  /// **'Наслаждайтесь поездкой и соблюдайте правила'**
+  String get onboadring_1_description_2;
+
+  /// No description provided for @onboadring_1_description_3.
+  ///
+  /// In en, this message translates to:
+  /// **'Завершите аренду, припарковав велосипед в разрешённом месте'**
+  String get onboadring_1_description_3;
+
+  /// No description provided for @onboadring_2_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Основные правила дорожного движения'**
+  String get onboadring_2_title;
+
+  /// No description provided for @onboadring_2_description_0.
+  ///
+  /// In en, this message translates to:
+  /// **'Держитесь правой стороны дороги'**
+  String get onboadring_2_description_0;
+
+  /// No description provided for @onboadring_2_description_1.
+  ///
+  /// In en, this message translates to:
+  /// **'Уступайте пешеходам на переходах'**
+  String get onboadring_2_description_1;
+
+  /// No description provided for @onboadring_2_description_2.
+  ///
+  /// In en, this message translates to:
+  /// **'Не ездите по тротуарам'**
+  String get onboadring_2_description_2;
+
+  /// No description provided for @onboadring_2_description_3.
+  ///
+  /// In en, this message translates to:
+  /// **'Не пользуйтесь телефоном во время движения'**
+  String get onboadring_2_description_3;
+
+  /// No description provided for @onboadring_3_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Завершение аренды и штрафы'**
+  String get onboadring_3_title;
+
+  /// No description provided for @onboadring_3_description_0.
+  ///
+  /// In en, this message translates to:
+  /// **'Паркуйтесь в разрешённых зонах'**
+  String get onboadring_3_description_0;
+
+  /// No description provided for @onboadring_3_description_1.
+  ///
+  /// In en, this message translates to:
+  /// **'Не блокируйте пешеходные дорожки'**
+  String get onboadring_3_description_1;
+
+  /// No description provided for @onboadring_3_description_2.
+  ///
+  /// In en, this message translates to:
+  /// **'Оставленный в неположенном месте велосипед → штраф'**
+  String get onboadring_3_description_2;
+
+  /// No description provided for @onboadring_3_description_3.
+  ///
+  /// In en, this message translates to:
+  /// **'Повреждение велосипеда → штраф'**
+  String get onboadring_3_description_3;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

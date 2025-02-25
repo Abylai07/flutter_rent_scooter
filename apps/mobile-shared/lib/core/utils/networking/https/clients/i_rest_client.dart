@@ -1,3 +1,4 @@
+import 'package:almabike_shared/core/utils/networking/https/models/device_model.dart';
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
 
@@ -8,7 +9,7 @@ abstract class IRestClient {
   factory IRestClient(Dio dio, {String? baseUrl}) = _IRestClient;
 
   @GET('/devices')
-  Future<dynamic> fetchDevices();
+  Future<List<Device>> fetchDevices();
 
   @POST('/devices/lock')
   Future<dynamic> lock(@Field() int deviceId);

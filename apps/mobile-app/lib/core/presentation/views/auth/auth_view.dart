@@ -86,9 +86,7 @@ class AuthView extends StatelessWidget {
               SizedBox(height: 24),
               AspectRatio(
                 aspectRatio: 328 / 24,
-                child: Assets.logos.logo.svg(
-                  package: 'almabike_shared',
-                ),
+                child: Assets.logos.logo.svg(),
               ),
               SizedBox(height: 40),
               BikeText(
@@ -106,14 +104,16 @@ class AuthView extends StatelessWidget {
           ),
         ),
       ),
-      fab: Padding(
-        padding: const EdgeInsets.all(16),
-        child: BikeButton(
-          title: Localization.of(context).get_code,
-          onPressed: () {
-            isAuthenticated = true;
-            AutoRouter.of(context).replace(HomeRoute());
-          },
+      bottomNavigationBar: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: BikeButton(
+            title: Localization.of(context).get_code,
+            onPressed: () {
+              isAuthenticated = true;
+              AutoRouter.of(context).replace(HomeRoute());
+            },
+          ),
         ),
       ),
     );

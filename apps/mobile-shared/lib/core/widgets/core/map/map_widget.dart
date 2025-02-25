@@ -1,114 +1,96 @@
+import 'package:almabike_shared/core/utils/networking/https/models/device_model.dart';
 import 'package:almabike_shared/core/utils/service/bike_debouncer.dart';
 import 'package:almabike_shared/core/widgets/core/map/bloc/map_bloc.dart';
+import 'package:almabike_shared/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_osm_plugin/flutter_osm_plugin.dart';
+import 'package:flutter_map/flutter_map.dart';
+import 'package:latlong2/latlong.dart';
 
 class BikeMapWidget extends StatefulWidget {
-  const BikeMapWidget({super.key, this.onRegionChanged});
+  const BikeMapWidget({
+    super.key,
+    this.onDeviceTapped,
+    this.onMapTapped,
+    required this.child,
+  });
 
-  final void Function(Region region)? onRegionChanged;
+  final Widget child;
+  final void Function(Device device)? onDeviceTapped;
+  final VoidCallback? onMapTapped;
 
   @override
   State<BikeMapWidget> createState() => _BikeMapWidgetState();
 }
 
 class _BikeMapWidgetState extends State<BikeMapWidget> {
-  final controller = MapController.withUserPosition(
-    trackUserLocation: const UserTrackingOption(
-      enableTracking: true,
-      unFollowUser: false,
-    ),
-    useExternalTracking: true,
-  );
+  List<Marker> markers = [];
 
   final debouncer = BikeDebouncer();
+  final controller = MapController();
+  void addMarkers(List<Device> devices) {
+    markers.clear();
+    markers = devices.map((e) {
+      return Marker(
+        point: LatLng(e.position?.latitude ?? 0, e.position?.longitude ?? 0),
+        width: 80,
+        height: 80,
+        child: GestureDetector(
+          onTap: () {
+            widget.onDeviceTapped?.call(e);
+          },
+          child: Assets.images.markers.bikeMarker.image(
+            width: 80,
+            height: 80,
+          ),
+        ),
+      );
+    }).toList();
+    setState(() {});
+  }
 
   @override
   void dispose() {
-    controller.dispose();
     debouncer.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<MapBloc, MapState>(
-      listener: (context, state) {
-        state.whenOrNull(
-          bikes: (markers) async {
-            final points = markers
-                .map(
-                  (e) => GeoPoint(
-                    latitude: e['position']['latitude'],
-                    longitude: e['position']['longitude'],
-                  ),
-                )
-                .toList();
-            await _addMarkers(markers: points);
-          },
-        );
-      },
-      builder: (context, state) {
-        return OSMFlutter(
-          controller: controller
-            ..listenerRegionIsChanging.addListener(
-              () {
-                debouncer.run(() {
-                  final region = controller.listenerRegionIsChanging.value;
-                  if (region != null) {
-                    widget.onRegionChanged?.call(region);
-                  }
-                });
+    return BlocProvider(
+      create: (context) =>
+          context.read<MapBloc>()..add(const MapBlocEvent.get()),
+      child: BlocConsumer<MapBloc, MapBlocState>(
+        listener: (context, state) {
+          state.whenOrNull(
+            bikes: (markers) {
+              addMarkers(markers);
+            },
+          );
+        },
+        builder: (context, state) {
+          return FlutterMap(
+            mapController: controller,
+            options: MapOptions(
+              initialCenter: const LatLng(43.2389498, 76.889709),
+              initialZoom: 12,
+              onTap: (tapPosition, point) {
+                widget.onMapTapped?.call();
               },
             ),
-          osmOption: OSMOption(
-            userTrackingOption: const UserTrackingOption(
-              enableTracking: true,
-              unFollowUser: false,
-            ),
-            zoomOption: const ZoomOption(
-              initZoom: 8,
-              minZoomLevel: 3,
-              maxZoomLevel: 19,
-              stepZoom: 1.0,
-            ),
-            userLocationMarker: UserLocationMaker(
-              personMarker: const MarkerIcon(
-                icon: Icon(
-                  Icons.location_history_rounded,
-                  color: Colors.red,
-                  size: 48,
-                ),
+            children: [
+              TileLayer(
+                urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+                userAgentPackageName: 'com.example.app',
               ),
-              directionArrowMarker: const MarkerIcon(
-                icon: Icon(
-                  Icons.double_arrow,
-                  size: 48,
-                ),
+              MarkerLayer(
+                markers: markers,
               ),
-            ),
-            roadConfiguration: const RoadOption(
-              roadColor: Colors.yellowAccent,
-            ),
-          ),
-        );
-      },
+              widget.child,
+            ],
+          );
+        },
+      ),
     );
-  }
-
-  Future<void> _addMarkers({required List<GeoPoint> markers}) async {
-    for (var marker in markers) {
-      await controller.addMarker(
-        marker,
-        markerIcon: const MarkerIcon(
-          icon: Icon(
-            Icons.location_on,
-            color: Colors.red,
-            size: 48,
-          ),
-        ),
-      );
-    }
   }
 }

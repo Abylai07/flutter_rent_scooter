@@ -40,16 +40,29 @@ class BikeTextField extends StatelessWidget {
           ),
         TextFormField(
           decoration: InputDecoration(
-            prefixStyle: BikeTypography.body.large.copyWith(
-              color: context.theme.whenByValue(
-                light: BikeColors.text.light.primary,
-                dark: BikeColors.text.dark.primary,
-              ),
-            ),
+            isDense: true,
             hintStyle: BikeTypography.body.large.copyWith(
               color: context.theme.whenByValue(
-                light: BikeColors.text.light.primary,
-                dark: BikeColors.text.dark.primary,
+                light: BikeColors.text.light.secondary,
+                dark: BikeColors.text.dark.secondary,
+              ),
+            ),
+            enabledBorder: OutlineInputBorder(
+              borderRadius: BikeBorderRadiuses.radius20,
+              borderSide: BorderSide(
+                color: context.theme.whenByValue(
+                  light: BikeColors.stroke.light.main,
+                  dark: BikeColors.stroke.dark.main,
+                ),
+              ),
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderRadius: BikeBorderRadiuses.radius20,
+              borderSide: BorderSide(
+                color: context.theme.whenByValue(
+                  light: BikeColors.stroke.light.main,
+                  dark: BikeColors.stroke.dark.main,
+                ),
               ),
             ),
             border: OutlineInputBorder(
@@ -62,8 +75,18 @@ class BikeTextField extends StatelessWidget {
               ),
             ),
             hintText: hintText,
-            prefix: prefixText != null ? BikeText(prefixText!) : null,
-            floatingLabelBehavior: FloatingLabelBehavior.never,
+            prefix: prefixText != null
+                ? BikeText(
+                    prefixText!,
+                    style: BikeTypography.body.large.copyWith(
+                      color: context.theme.whenByValue(
+                        light: BikeColors.text.light.primary,
+                        dark: BikeColors.text.dark.primary,
+                      ),
+                    ),
+                  )
+                : null,
+            floatingLabelBehavior: FloatingLabelBehavior.always,
             floatingLabelAlignment: FloatingLabelAlignment.center,
           ),
           inputFormatters: inputFormatters,

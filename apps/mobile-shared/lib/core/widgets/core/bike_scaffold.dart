@@ -9,7 +9,8 @@ class BikeScaffold extends StatelessWidget {
     this.appBar,
     this.botSafeArea = false,
     this.topSafeArea = false,
-    this.fab,
+    this.bottomNavigationBar,
+    this.bgColor,
   });
 
   /// App bar widget
@@ -21,11 +22,14 @@ class BikeScaffold extends StatelessWidget {
   /// Safe area for bottom
   final bool botSafeArea;
 
-  /// Floating action button
-  final Widget? fab;
+  /// Bottom navigation bar widget
+  final Widget? bottomNavigationBar;
 
   /// Safe area for top
   final bool topSafeArea;
+
+  /// Nullable background color
+  final Color? bgColor;
 
   @override
   Widget build(BuildContext context) {
@@ -35,15 +39,14 @@ class BikeScaffold extends StatelessWidget {
         top: topSafeArea,
         bottom: botSafeArea,
         child: Scaffold(
-          backgroundColor: context.theme.whenByValue(
-            light: BikeColors.background.light.primary,
-            dark: BikeColors.background.dark.primary,
-          ),
+          backgroundColor: bgColor ??
+              context.theme.whenByValue(
+                light: BikeColors.background.light.primary,
+                dark: BikeColors.background.dark.primary,
+              ),
           appBar: appBar,
           body: body,
-          floatingActionButton: fab,
-          floatingActionButtonLocation:
-              FloatingActionButtonLocation.centerFloat,
+          bottomNavigationBar: bottomNavigationBar,
         ),
       ),
     );

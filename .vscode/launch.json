@@ -1,0 +1,25 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "almabike",
+            "cwd": "apps/mobile-app",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "almabike (profile)",
+            "cwd": "apps/mobile-app",
+             "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "almabike (release)",
+            "cwd": "apps/mobile-app",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        }
+    ]
+}

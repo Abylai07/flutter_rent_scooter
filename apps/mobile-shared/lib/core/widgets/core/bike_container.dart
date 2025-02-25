@@ -13,6 +13,8 @@ class BikeContainer extends StatelessWidget {
     this.padding,
     this.margin,
     this.shape = BoxShape.rectangle,
+    this.withBorder = false,
+    this.withShadow = true,
   });
 
   final BorderRadius? borderRadius;
@@ -23,7 +25,8 @@ class BikeContainer extends StatelessWidget {
   final EdgeInsetsGeometry? padding;
   final BoxShape shape;
   final double? width;
-
+  final bool withBorder;
+  final bool withShadow;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -33,8 +36,16 @@ class BikeContainer extends StatelessWidget {
       margin: margin,
       decoration: BoxDecoration(
         shape: shape,
+        border: withBorder
+            ? Border.all(
+                color: context.theme.whenByValue(
+                  light: BikeColors.stroke.light.main,
+                  dark: BikeColors.stroke.dark.main,
+                ),
+              )
+            : null,
         borderRadius: borderRadius,
-        boxShadow: BikeShadows.primary,
+        boxShadow: withShadow ? BikeShadows.primary : null,
         color: color ??
             context.theme.whenByValue(
               light: BikeColors.background.light.primary,
