@@ -1,0 +1,20 @@
+{
+  "buildFiles": [
+    "/Users/tezmc/development/flutter/packages/flutter_tools/gradle/src/main/groovy/CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "/Users/tezmc/Library/Android/sdk/cmake/3.22.1/bin/ninja",
+      "-C",
+      "/Users/tezmc/Desktop/dev/flutter/yoko/almabike/apps/mobile-app/android/app/.cxx/Debug/3y5p6c5l/armeabi-v7a",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "/Users/tezmc/Library/Android/sdk/cmake/3.22.1/bin/ninja",
+    "-C",
+    "/Users/tezmc/Desktop/dev/flutter/yoko/almabike/apps/mobile-app/android/app/.cxx/Debug/3y5p6c5l/armeabi-v7a",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {}
+}

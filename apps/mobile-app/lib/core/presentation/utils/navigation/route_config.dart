@@ -16,9 +16,18 @@ class AppRouter extends RootStackRouter {
           initial: true,
           guards: guards,
         ),
-        AutoRoute(page: AuthRoute.page, initial: false),
-        AutoRoute(page: OnboardingRoute.page, initial: false),
+        AutoRoute(page: AuthRoute.page),
+        AutoRoute(page: AuthVerificationRoute.page),
+        AutoRoute(page: OnboardingRoute.page),
       ];
+
+  List<String> get unguardedRoutes => [
+        AuthRoute.name,
+        AuthVerificationRoute.name,
+      ];
+
+  bool isUnguardedRoute(String routeName) =>
+      unguardedRoutes.contains(routeName);
 
   @override
   late final List<AutoRouteGuard> guards = [
@@ -26,7 +35,7 @@ class AppRouter extends RootStackRouter {
       (resolver, router) {
         final routeName = resolver.routeName;
         if (isOnboarded) {
-          final isGuarded = isAuthenticated || routeName == AuthRoute.name;
+          final isGuarded = isAuthenticated || isUnguardedRoute(routeName);
           if (isGuarded) {
             resolver.next();
           } else {
