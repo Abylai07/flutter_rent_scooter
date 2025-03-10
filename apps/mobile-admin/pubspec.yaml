@@ -13,6 +13,10 @@ dependencies:
     sdk: flutter
 
   almabike_shared: 0.0.1+1
+  auto_route: ^9.3.0+1
+  provider: ^6.1.2
+  rename_app: ^1.6.2
+  flutter_launcher_icons: ^0.14.3
 
 dependency_overrides:
   almabike_shared:
@@ -23,6 +27,8 @@ dev_dependencies:
     sdk: flutter
 
   flutter_lints: ^4.0.0
+  build_runner: ^2.4.15
+  auto_route_generator: ^9.3.0
 
 flutter:
   uses-material-design: true

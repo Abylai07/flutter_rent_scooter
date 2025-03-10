@@ -75,5 +75,13 @@
   "onboadring_3_description_2": "Оставленный в неположенном месте велосипед → штраф",
   "@onboadring_3_description_2": {},
   "onboadring_3_description_3": "Повреждение велосипеда → штраф",
-  "@onboadring_3_description_3": {}
+  "@onboadring_3_description_3": {},
+  "incorrect_phone": "Неверный номер",
+  "@incorrect_phone": {},
+  "incorrect_code": "Неверный код",
+  "@incorrect_code": {},
+  "enter_code_from_sms": "Введите код из SMS",
+  "@enter_code_from_sms": {},
+  "authorization": "Авторизация",
+  "@authorization": {}
 }

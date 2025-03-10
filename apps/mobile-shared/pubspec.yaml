@@ -33,6 +33,7 @@ dependencies:
   # utils
   flutter_gen: ^5.9.0
   freezed: ^2.5.8
+  freezed_annotation: ^2.4.4
 
   # ui
   figma_squircle:
@@ -40,10 +41,10 @@ dependencies:
       url: https://github.com/Ax0elz/figma_squircle
       ref: 5f1ad5aaccdf31fc398fc141979ea845a0f45383
   mask_text_input_formatter: ^2.9.0
+  pinput: ^5.0.1
 
   # navigation
   auto_route: ^9.3.0+1
-  freezed_annotation: ^2.4.4
 
 dev_dependencies:
   flutter_test:

@@ -46,7 +46,13 @@ class BikeScaffold extends StatelessWidget {
               ),
           appBar: appBar,
           body: body,
-          bottomNavigationBar: bottomNavigationBar,
+          bottomNavigationBar: Padding(
+            padding: EdgeInsets.only(
+              bottom: MediaQuery.of(context).viewInsets.bottom,
+            ),
+            child: bottomNavigationBar,
+          ),
+          resizeToAvoidBottomInset: false,
         ),
       ),
     );

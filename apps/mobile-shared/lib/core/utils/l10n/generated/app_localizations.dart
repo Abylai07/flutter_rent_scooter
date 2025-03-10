@@ -258,6 +258,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Повреждение велосипеда → штраф'**
   String get onboadring_3_description_3;
+
+  /// No description provided for @incorrect_phone.
+  ///
+  /// In en, this message translates to:
+  /// **'Неверный номер'**
+  String get incorrect_phone;
+
+  /// No description provided for @incorrect_code.
+  ///
+  /// In en, this message translates to:
+  /// **'Неверный код'**
+  String get incorrect_code;
+
+  /// No description provided for @enter_code_from_sms.
+  ///
+  /// In en, this message translates to:
+  /// **'Введите код из SMS'**
+  String get enter_code_from_sms;
+
+  /// No description provided for @authorization.
+  ///
+  /// In en, this message translates to:
+  /// **'Авторизация'**
+  String get authorization;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

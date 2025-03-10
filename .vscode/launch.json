@@ -10,13 +10,33 @@
         {
             "name": "almabike (profile)",
             "cwd": "apps/mobile-app",
-             "request": "launch",
+            "request": "launch",
             "type": "dart",
             "flutterMode": "profile"
         },
         {
             "name": "almabike (release)",
             "cwd": "apps/mobile-app",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "admin",
+            "cwd": "apps/mobile-admin",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "admin (profile)",
+            "cwd": "apps/mobile-admin",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "admin (release)",
+            "cwd": "apps/mobile-admin",
             "request": "launch",
             "type": "dart",
             "flutterMode": "release"

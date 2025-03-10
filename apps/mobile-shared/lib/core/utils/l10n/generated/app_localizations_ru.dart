@@ -1,5 +1,5 @@
-// ignore: unused_import
 import 'package:intl/intl.dart' as intl;
+
 import 'app_localizations.dart';
 
 // ignore_for_file: type=lint
@@ -99,4 +99,16 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get onboadring_3_description_3 => 'Повреждение велосипеда → штраф';
+
+  @override
+  String get incorrect_phone => 'Неверный номер';
+
+  @override
+  String get incorrect_code => 'Неверный код';
+
+  @override
+  String get enter_code_from_sms => 'Введите код из SMS';
+
+  @override
+  String get authorization => 'Авторизация';
 }

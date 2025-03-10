@@ -12,13 +12,16 @@ class BikeTextField extends StatelessWidget {
     this.title,
     this.inputFormatters,
     this.keyboardType,
+    this.controller,
+    this.errorText,
   });
-
+  final TextEditingController? controller;
   final String? hintText;
   final List<TextInputFormatter>? inputFormatters;
   final TextInputType? keyboardType;
   final String? prefixText;
   final String? title;
+  final String? errorText;
 
   @override
   Widget build(BuildContext context) {
@@ -39,6 +42,7 @@ class BikeTextField extends StatelessWidget {
             ),
           ),
         TextFormField(
+          controller: controller,
           decoration: InputDecoration(
             isDense: true,
             hintStyle: BikeTypography.body.large.copyWith(
@@ -92,6 +96,19 @@ class BikeTextField extends StatelessWidget {
           inputFormatters: inputFormatters,
           keyboardType: keyboardType,
         ),
+        if (errorText != null)
+          Padding(
+            padding: const EdgeInsets.only(top: 8),
+            child: BikeText(
+              errorText!,
+              style: BikeTypography.body.large.copyWith(
+                color: context.theme.whenByValue(
+                  light: BikeColors.main.light.red,
+                  dark: BikeColors.main.dark.red,
+                ),
+              ),
+            ),
+          ),
       ],
     );
   }

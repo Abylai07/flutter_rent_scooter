@@ -14,6 +14,22 @@ abstract class IRestClient {
   @POST('/devices/lock')
   Future<dynamic> lock(@Field() int deviceId);
 
+  @POST('/auth/login')
+  Future<dynamic> login(
+    @Field() String phone,
+    @Field() String code,
+  );
+
+  @POST('/auth/register')
+  Future<dynamic> register(
+    @Field() String name,
+    @Field() String phone,
+    @Field() String email,
+  );
+
   @POST('/devices/unlock')
   Future<dynamic> unlock(@Field() int deviceId);
+
+  @POST('/devices/unlock-battery')
+  Future<dynamic> unlockBattery(@Field() int deviceId);
 }

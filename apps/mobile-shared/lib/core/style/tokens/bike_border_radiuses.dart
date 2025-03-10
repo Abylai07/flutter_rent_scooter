@@ -11,6 +11,10 @@ class BikeBorderRadiuses {
     cornerRadius: 4,
     cornerSmoothing: cornerSmoothing,
   );
+  static final radius8 = SmoothBorderRadius(
+    cornerRadius: 8,
+    cornerSmoothing: cornerSmoothing,
+  );
   static final radius12 = SmoothBorderRadius(
     cornerRadius: 12,
     cornerSmoothing: cornerSmoothing,
