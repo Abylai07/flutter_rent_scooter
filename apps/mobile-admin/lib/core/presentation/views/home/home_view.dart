@@ -136,7 +136,7 @@ class BikeModal extends StatelessWidget {
           BikeButton(
             title: 'Разблокировать батарею',
             onPressed: () async {
-              final result = await RestClient().app.unlockBattery(10000);
+              final result = await RestClient().app.unlockBattery(item.id);
               showSnackBar(
                 context,
                 name: result['deviceId'].toString(),
