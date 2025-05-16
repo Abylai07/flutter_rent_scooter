@@ -5,19 +5,28 @@ packages:
 
 scripts:
   clean:
-    exec: fvm flutter clean
+    exec: flutter clean
   build:
-    run: fvm flutter pub get && fvm flutter pub run build_runner build --delete-conflicting-outputs --fail-on-severe
+    run: fvm flutter pub run build_runner build --delete-conflicting-outputs --fail-on-severe
+    exec:
+      failFast: true
+      concurrency: 1
+  watch:
+    run: fvm flutter pub run build_runner watch --delete-conflicting-outputs
     exec:
       failFast: true
       concurrency: 1
   get:
-    exec: fvm flutter pub get
+    exec: flutter pub get
   fluttergen:
     exec: fluttergen
   gen_l10n:
-    exec: fvm flutter gen-l10n
+    exec: flutter gen-l10n
   auto_fix:
-    exec: fvm flutter fix --apply
+    exec: flutter fix --apply
+
   upgrade_dependencies:
-    exec: fvm flutter pub upgrade --major-versions
+    exec: flutter pub upgrade --major-versions
+  pod_install:
+    exec: |
+      cd ios && pod install && cd ..

@@ -9,13 +9,13 @@
 // coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:almabike_app/core/presentation/views/auth/auth_view.dart'
+import 'package:almabike_app/src/feature/auth/auth_view.dart'
     as _i2;
-import 'package:almabike_app/core/presentation/views/auth_verification/auth_verification_view.dart'
+import 'package:almabike_app/src/feature/auth_verification/auth_verification_view.dart'
     as _i1;
-import 'package:almabike_app/core/presentation/views/home/home_view.dart'
+import 'package:almabike_app/src/feature/home/home_view.dart'
     as _i3;
-import 'package:almabike_app/core/presentation/views/onboarding/onboarding_view.dart'
+import 'package:almabike_app/src/feature/onboarding/onboarding_view.dart'
     as _i4;
 import 'package:auto_route/auto_route.dart' as _i5;
 import 'package:flutter/material.dart' as _i6;

@@ -12,18 +12,19 @@ dependencies:
   flutter:
     sdk: flutter
   provider: ^6.1.2
-  almabike_shared: 0.0.1+1
   auto_route: ^9.3.0+1
   rename_app: ^1.6.2
   flutter_launcher_icons: ^0.14.3
-  freezed: ^2.5.8
-  freezed_annotation: ^2.4.4
   flutter_bloc: ^9.0.0
   mask_text_input_formatter: ^2.9.0
+  get_storage: ^2.1.1
+  path_provider: ^2.1.5
 
-dependency_overrides:
+
+
   almabike_shared:
     path: ../mobile-shared
+
 
 dev_dependencies:
   flutter_test:
@@ -34,3 +35,7 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  generate: true
+  assets:
+    - assets/icons/
+    - assets/dgissdk.key

@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:almabike_shared/almabike_shared.dart';
 import 'package:almabike_shared/core/style/tokens/bike_border_radiuses.dart';
 import 'package:almabike_shared/core/utils/networking/https/models/device_model.dart';
@@ -8,6 +10,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
+import 'package:dgis_mobile_sdk_full/dgis.dart' as sdk;
+
+import 'map_common.dart';
 
 class BikeMapWidget extends StatefulWidget {
   const BikeMapWidget({
@@ -31,6 +36,34 @@ class _BikeMapWidgetState extends State<BikeMapWidget> {
   final debouncer = BikeDebouncer();
   final controller = MapController();
 
+  final sdkContext = AppContainer().initializeSdk();
+  final mapWidgetController = sdk.MapWidgetController();
+
+  @override
+  void initState() {
+    try{
+      final locationService = sdk.LocationService(sdkContext);
+      mapWidgetController.getMapAsync((map) {
+        map.camera.position = const sdk.CameraPosition(
+          point: sdk.GeoPoint(
+            latitude: sdk.Latitude(43.238949),
+            longitude: sdk.Longitude(76.889709),
+          ),
+          zoom: sdk.Zoom(12),
+        );
+      });
+
+      checkLocationPermissions(locationService).then((_) {
+        mapWidgetController.getMapAsync((map) {
+          final locationSource = sdk.MyLocationMapObjectSource(sdkContext);
+          map.addSource(locationSource);
+        });
+      });
+    } catch (e, stack){
+      log('Error: $e \n Stack: $stack');
+    }
+    super.initState();
+  }
   void addMarkers(List<Device> devices) {
     markers.clear();
     markers = devices.map((e) {
@@ -98,6 +131,10 @@ class _BikeMapWidgetState extends State<BikeMapWidget> {
         ),
       child: BlocConsumer<MapBloc, MapBlocState>(
         listener: (context, state) {
+          // switch(state.runtimeType){
+          //   case MapBlocStateBikes bike:
+          //     return addMarkers(bike.bikes);
+          // }
           state.whenOrNull(
             bikes: (markers) {
               addMarkers(markers);
@@ -105,6 +142,12 @@ class _BikeMapWidgetState extends State<BikeMapWidget> {
           );
         },
         builder: (context, state) {
+          // return sdk.MapWidget(
+          //   sdkContext: sdkContext,
+          //   mapOptions: sdk.MapOptions(),
+          //   controller: mapWidgetController,
+          // );
+
           return FlutterMap(
             mapController: controller,
             options: MapOptions(
@@ -130,3 +173,5 @@ class _BikeMapWidgetState extends State<BikeMapWidget> {
     );
   }
 }
+
+

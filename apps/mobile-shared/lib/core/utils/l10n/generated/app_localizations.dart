@@ -103,184 +103,184 @@ abstract class AppLocalizations {
   /// **'English'**
   String get language;
 
-  /// Подсказка для ввода номера телефона
+  /// Hint for entering phone number
   ///
   /// In en, this message translates to:
-  /// **'Введите номер телефона'**
+  /// **'Enter your phone number'**
   String get enter_phone_number;
 
   /// No description provided for @phone_number.
   ///
   /// In en, this message translates to:
-  /// **'Номер телефона'**
+  /// **'Phone number'**
   String get phone_number;
 
-  /// Далее
+  /// Next
   ///
   /// In en, this message translates to:
-  /// **'Далее'**
+  /// **'Next'**
   String get next;
 
-  /// Начать поездку
+  /// Start the ride
   ///
   /// In en, this message translates to:
-  /// **'Начать поездку'**
+  /// **'Start ride'**
   String get start_ride;
 
   /// No description provided for @get_code.
   ///
   /// In en, this message translates to:
-  /// **'Получить код'**
+  /// **'Get code'**
   String get get_code;
 
-  /// Время для повторной отправки кода
+  /// Time until code can be resent
   ///
   /// In en, this message translates to:
-  /// **'Отправить код через 00:{seconds}'**
+  /// **'Resend code in 00:{seconds}'**
   String resend_code_in(int seconds);
 
-  /// Количество новых сообщений на главном экране
+  /// Number of new messages on the home screen
   ///
   /// In en, this message translates to:
-  /// **'{count, plural, zero{У вас нет новых сообщений} one{У вас 1 новое сообщение} other{У вас {count} новых сообщений}}'**
+  /// **'{count, plural, zero{You have no new messages} one{You have 1 new message} other{You have {count} new messages}}'**
   String pageHomeInboxCount(int count);
 
   /// No description provided for @onboadring_0_title.
   ///
   /// In en, this message translates to:
-  /// **'Добро пожаловать в Almaty Bike'**
+  /// **'Welcome to Almaty Bike'**
   String get onboadring_0_title;
 
   /// No description provided for @onboadring_0_description_0.
   ///
   /// In en, this message translates to:
-  /// **'Быстрый, удобный и экологичный способ передвижения!'**
+  /// **'A fast, convenient and eco-friendly way to get around!'**
   String get onboadring_0_description_0;
 
   /// No description provided for @onboadring_0_description_1.
   ///
   /// In en, this message translates to:
-  /// **'Разблокируйте велосипед в пару кликов и наслаждайтесь поездкой'**
+  /// **'Unlock a bike in a couple of clicks and enjoy your ride'**
   String get onboadring_0_description_1;
 
   /// No description provided for @onboadring_0_description_2.
   ///
   /// In en, this message translates to:
-  /// **'Соблюдайте правила безопасности и ПДД'**
+  /// **'Follow safety rules and traffic regulations'**
   String get onboadring_0_description_2;
 
   /// No description provided for @onboadring_1_title.
   ///
   /// In en, this message translates to:
-  /// **'Как начать поездку?'**
+  /// **'How to start your ride?'**
   String get onboadring_1_title;
 
   /// No description provided for @onboadring_1_description_0.
   ///
   /// In en, this message translates to:
-  /// **'Найдите ближайший электробайк на карте'**
+  /// **'Find the nearest e-bike on the map'**
   String get onboadring_1_description_0;
 
   /// No description provided for @onboadring_1_description_1.
   ///
   /// In en, this message translates to:
-  /// **'Отсканируйте QR-код для разблокировки'**
+  /// **'Scan the QR code to unlock'**
   String get onboadring_1_description_1;
 
   /// No description provided for @onboadring_1_description_2.
   ///
   /// In en, this message translates to:
-  /// **'Наслаждайтесь поездкой и соблюдайте правила'**
+  /// **'Enjoy your ride and follow the rules'**
   String get onboadring_1_description_2;
 
   /// No description provided for @onboadring_1_description_3.
   ///
   /// In en, this message translates to:
-  /// **'Завершите аренду, припарковав велосипед в разрешённом месте'**
+  /// **'End the rental by parking the bike in an allowed area'**
   String get onboadring_1_description_3;
 
   /// No description provided for @onboadring_2_title.
   ///
   /// In en, this message translates to:
-  /// **'Основные правила дорожного движения'**
+  /// **'Basic traffic rules'**
   String get onboadring_2_title;
 
   /// No description provided for @onboadring_2_description_0.
   ///
   /// In en, this message translates to:
-  /// **'Держитесь правой стороны дороги'**
+  /// **'Keep to the right side of the road'**
   String get onboadring_2_description_0;
 
   /// No description provided for @onboadring_2_description_1.
   ///
   /// In en, this message translates to:
-  /// **'Уступайте пешеходам на переходах'**
+  /// **'Give way to pedestrians at crossings'**
   String get onboadring_2_description_1;
 
   /// No description provided for @onboadring_2_description_2.
   ///
   /// In en, this message translates to:
-  /// **'Не ездите по тротуарам'**
+  /// **'Do not ride on sidewalks'**
   String get onboadring_2_description_2;
 
   /// No description provided for @onboadring_2_description_3.
   ///
   /// In en, this message translates to:
-  /// **'Не пользуйтесь телефоном во время движения'**
+  /// **'Do not use your phone while riding'**
   String get onboadring_2_description_3;
 
   /// No description provided for @onboadring_3_title.
   ///
   /// In en, this message translates to:
-  /// **'Завершение аренды и штрафы'**
+  /// **'Ending the ride and penalties'**
   String get onboadring_3_title;
 
   /// No description provided for @onboadring_3_description_0.
   ///
   /// In en, this message translates to:
-  /// **'Паркуйтесь в разрешённых зонах'**
+  /// **'Park only in designated areas'**
   String get onboadring_3_description_0;
 
   /// No description provided for @onboadring_3_description_1.
   ///
   /// In en, this message translates to:
-  /// **'Не блокируйте пешеходные дорожки'**
+  /// **'Do not block pedestrian paths'**
   String get onboadring_3_description_1;
 
   /// No description provided for @onboadring_3_description_2.
   ///
   /// In en, this message translates to:
-  /// **'Оставленный в неположенном месте велосипед → штраф'**
+  /// **'Leaving the bike in a wrong place → fine'**
   String get onboadring_3_description_2;
 
   /// No description provided for @onboadring_3_description_3.
   ///
   /// In en, this message translates to:
-  /// **'Повреждение велосипеда → штраф'**
+  /// **'Damaging the bike → fine'**
   String get onboadring_3_description_3;
 
   /// No description provided for @incorrect_phone.
   ///
   /// In en, this message translates to:
-  /// **'Неверный номер'**
+  /// **'Incorrect number'**
   String get incorrect_phone;
 
   /// No description provided for @incorrect_code.
   ///
   /// In en, this message translates to:
-  /// **'Неверный код'**
+  /// **'Incorrect code'**
   String get incorrect_code;
 
   /// No description provided for @enter_code_from_sms.
   ///
   /// In en, this message translates to:
-  /// **'Введите код из SMS'**
+  /// **'Enter the code from SMS'**
   String get enter_code_from_sms;
 
   /// No description provided for @authorization.
   ///
   /// In en, this message translates to:
-  /// **'Авторизация'**
+  /// **'Authorization'**
   String get authorization;
 }
 

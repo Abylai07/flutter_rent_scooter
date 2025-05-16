@@ -1,4 +1,4 @@
-import 'package:almabike_app/core/presentation/utils/navigation/route_config.dart';
+import 'package:almabike_app/src/core/utils/navigation/route_config.dart';
 import 'package:almabike_shared/almabike_shared.dart';
 import 'package:almabike_shared/core/utils/constants/bike_constants.dart';
 import 'package:flutter/material.dart';

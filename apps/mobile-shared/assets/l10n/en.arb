@@ -4,84 +4,84 @@
   "@language": {
     "description": "The name of language"
   },
-  "enter_phone_number": "Введите номер телефона",
+  "enter_phone_number": "Enter your phone number",
   "@enter_phone_number": {
-    "description": "Подсказка для ввода номера телефона"
+    "description": "Hint for entering phone number"
   },
-  "phone_number": "Номер телефона",
-  "next": "Далее",
+  "phone_number": "Phone number",
+  "next": "Next",
   "@next": {
-    "description": "Далее"
+    "description": "Next"
   },
-  "start_ride": "Начать поездку",
+  "start_ride": "Start ride",
   "@start_ride": {
-    "description": "Начать поездку"
+    "description": "Start the ride"
   },
   "@phone_number": {},
-  "get_code": "Получить код",
+  "get_code": "Get code",
   "@get_code": {},
-  "resend_code_in": "Отправить код через 00:{seconds}",
+  "resend_code_in": "Resend code in 00:{seconds}",
   "@resend_code_in": {
-    "description": "Время для повторной отправки кода",
+    "description": "Time until code can be resent",
     "placeholders": {
       "seconds": {
         "type": "int"
       }
     }
   },
-  "pageHomeInboxCount": "{count, plural, zero{У вас нет новых сообщений} one{У вас 1 новое сообщение} other{У вас {count} новых сообщений}}",
+  "pageHomeInboxCount": "{count, plural, zero{You have no new messages} one{You have 1 new message} other{You have {count} new messages}}",
   "@pageHomeInboxCount": {
-    "description": "Количество новых сообщений на главном экране",
+    "description": "Number of new messages on the home screen",
     "placeholders": {
       "count": {
         "type": "int"
       }
     }
   },
-  "onboadring_0_title": "Добро пожаловать в Almaty Bike",
+  "onboadring_0_title": "Welcome to Almaty Bike",
   "@onboadring_0_title": {},
-  "onboadring_0_description_0": "Быстрый, удобный и экологичный способ передвижения!",
+  "onboadring_0_description_0": "A fast, convenient and eco-friendly way to get around!",
   "@onboadring_0_description_0": {},
-  "onboadring_0_description_1": "Разблокируйте велосипед в пару кликов и наслаждайтесь поездкой",
+  "onboadring_0_description_1": "Unlock a bike in a couple of clicks and enjoy your ride",
   "@onboadring_0_description_1": {},
-  "onboadring_0_description_2": "Соблюдайте правила безопасности и ПДД",
+  "onboadring_0_description_2": "Follow safety rules and traffic regulations",
   "@onboadring_0_description_2": {},
-  "onboadring_1_title": "Как начать поездку?",
+  "onboadring_1_title": "How to start your ride?",
   "@onboadring_1_title": {},
-  "onboadring_1_description_0": "Найдите ближайший электробайк на карте",
+  "onboadring_1_description_0": "Find the nearest e-bike on the map",
   "@onboadring_1_description_0": {},
-  "onboadring_1_description_1": "Отсканируйте QR-код для разблокировки",
+  "onboadring_1_description_1": "Scan the QR code to unlock",
   "@onboadring_1_description_1": {},
-  "onboadring_1_description_2": "Наслаждайтесь поездкой и соблюдайте правила",
+  "onboadring_1_description_2": "Enjoy your ride and follow the rules",
   "@onboadring_1_description_2": {},
-  "onboadring_1_description_3": "Завершите аренду, припарковав велосипед в разрешённом месте",
+  "onboadring_1_description_3": "End the rental by parking the bike in an allowed area",
   "@onboadring_1_description_3": {},
-  "onboadring_2_title": "Основные правила дорожного движения",
+  "onboadring_2_title": "Basic traffic rules",
   "@onboadring_2_title": {},
-  "onboadring_2_description_0": "Держитесь правой стороны дороги",
+  "onboadring_2_description_0": "Keep to the right side of the road",
   "@onboadring_2_description_0": {},
-  "onboadring_2_description_1": "Уступайте пешеходам на переходах",
+  "onboadring_2_description_1": "Give way to pedestrians at crossings",
   "@onboadring_2_description_1": {},
-  "onboadring_2_description_2": "Не ездите по тротуарам",
+  "onboadring_2_description_2": "Do not ride on sidewalks",
   "@onboadring_2_description_2": {},
-  "onboadring_2_description_3": "Не пользуйтесь телефоном во время движения",
+  "onboadring_2_description_3": "Do not use your phone while riding",
   "@onboadring_2_description_3": {},
-  "onboadring_3_title": "Завершение аренды и штрафы",
+  "onboadring_3_title": "Ending the ride and penalties",
   "@onboadring_3_title": {},
-  "onboadring_3_description_0": "Паркуйтесь в разрешённых зонах",
+  "onboadring_3_description_0": "Park only in designated areas",
   "@onboadring_3_description_0": {},
-  "onboadring_3_description_1": "Не блокируйте пешеходные дорожки",
+  "onboadring_3_description_1": "Do not block pedestrian paths",
   "@onboadring_3_description_1": {},
-  "onboadring_3_description_2": "Оставленный в неположенном месте велосипед → штраф",
+  "onboadring_3_description_2": "Leaving the bike in a wrong place → fine",
   "@onboadring_3_description_2": {},
-  "onboadring_3_description_3": "Повреждение велосипеда → штраф",
+  "onboadring_3_description_3": "Damaging the bike → fine",
   "@onboadring_3_description_3": {},
-  "incorrect_phone": "Неверный номер",
+  "incorrect_phone": "Incorrect number",
   "@incorrect_phone": {},
-  "incorrect_code": "Неверный код",
+  "incorrect_code": "Incorrect code",
   "@incorrect_code": {},
-  "enter_code_from_sms": "Введите код из SMS",
+  "enter_code_from_sms": "Enter the code from SMS",
   "@enter_code_from_sms": {},
-  "authorization": "Авторизация",
+  "authorization": "Authorization",
   "@authorization": {}
 }

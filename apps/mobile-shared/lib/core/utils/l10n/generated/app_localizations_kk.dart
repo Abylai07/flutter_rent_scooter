@@ -12,23 +12,23 @@ class AppLocalizationsKk extends AppLocalizations {
   String get language => 'Қазақ тілі';
 
   @override
-  String get enter_phone_number => 'Введите номер телефона';
+  String get enter_phone_number => 'Телефон нөмірін енгізіңіз';
 
   @override
-  String get phone_number => 'Номер телефона';
+  String get phone_number => 'Телефон нөмірі';
 
   @override
-  String get next => 'Далее';
+  String get next => 'Келесі';
 
   @override
-  String get start_ride => 'Начать поездку';
+  String get start_ride => 'Жол жүруді бастау';
 
   @override
-  String get get_code => 'Получить код';
+  String get get_code => 'Кодты алу';
 
   @override
   String resend_code_in(int seconds) {
-    return 'Отправить код через 00:$seconds';
+    return 'Кодты қайта жіберу: 00:$seconds';
   }
 
   @override
@@ -36,78 +36,78 @@ class AppLocalizationsKk extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'У вас $count новых сообщений',
-      one: 'У вас 1 новое сообщение',
-      zero: 'У вас нет новых сообщений',
+      other: '$count жаңа хабарламаңыз бар',
+      one: '1 жаңа хабарламаңыз бар',
+      zero: 'Жаңа хабарламалар жоқ',
     );
     return '$_temp0';
   }
 
   @override
-  String get onboadring_0_title => 'Добро пожаловать в Almaty Bike';
+  String get onboadring_0_title => 'Almaty Bike-қа қош келдіңіз';
 
   @override
-  String get onboadring_0_description_0 => 'Быстрый, удобный и экологичный способ передвижения!';
+  String get onboadring_0_description_0 => 'Жылдам, ыңғайлы және экологиялық қозғалыс тәсілі!';
 
   @override
-  String get onboadring_0_description_1 => 'Разблокируйте велосипед в пару кликов и наслаждайтесь поездкой';
+  String get onboadring_0_description_1 => 'Велосипедті бірнеше басуда ашып, сапарыңыздан ләззат алыңыз';
 
   @override
-  String get onboadring_0_description_2 => 'Соблюдайте правила безопасности и ПДД';
+  String get onboadring_0_description_2 => 'Қауіпсіздік ережелері мен ЖҚЕ сақтаңыз';
 
   @override
-  String get onboadring_1_title => 'Как начать поездку?';
+  String get onboadring_1_title => 'Жол жүруді қалай бастауға болады?';
 
   @override
-  String get onboadring_1_description_0 => 'Найдите ближайший электробайк на карте';
+  String get onboadring_1_description_0 => 'Картадан ең жақын электровелосипедті табыңыз';
 
   @override
-  String get onboadring_1_description_1 => 'Отсканируйте QR-код для разблокировки';
+  String get onboadring_1_description_1 => 'Ашу үшін QR-кодты сканерлеңіз';
 
   @override
-  String get onboadring_1_description_2 => 'Наслаждайтесь поездкой и соблюдайте правила';
+  String get onboadring_1_description_2 => 'Сапарыңыздан ләззат алыңыз және ережелерді сақтаңыз';
 
   @override
-  String get onboadring_1_description_3 => 'Завершите аренду, припарковав велосипед в разрешённом месте';
+  String get onboadring_1_description_3 => 'Жалға алуды рұқсат етілген жерде аяқтаңыз';
 
   @override
-  String get onboadring_2_title => 'Основные правила дорожного движения';
+  String get onboadring_2_title => 'Негізгі жол қозғалысы ережелері';
 
   @override
-  String get onboadring_2_description_0 => 'Держитесь правой стороны дороги';
+  String get onboadring_2_description_0 => 'Жолдың оң жағымен жүріңіз';
 
   @override
-  String get onboadring_2_description_1 => 'Уступайте пешеходам на переходах';
+  String get onboadring_2_description_1 => 'Өтпе жолдарда жаяу жүргіншілерге жол беріңіз';
 
   @override
-  String get onboadring_2_description_2 => 'Не ездите по тротуарам';
+  String get onboadring_2_description_2 => 'Тротуармен жүрмеңіз';
 
   @override
-  String get onboadring_2_description_3 => 'Не пользуйтесь телефоном во время движения';
+  String get onboadring_2_description_3 => 'Қозғалыс кезінде телефон қолданбаңыз';
 
   @override
-  String get onboadring_3_title => 'Завершение аренды и штрафы';
+  String get onboadring_3_title => 'Жалға алуды аяқтау және айыппұлдар';
 
   @override
-  String get onboadring_3_description_0 => 'Паркуйтесь в разрешённых зонах';
+  String get onboadring_3_description_0 => 'Рұқсат етілген аймақтарда тоқтаңыз';
 
   @override
-  String get onboadring_3_description_1 => 'Не блокируйте пешеходные дорожки';
+  String get onboadring_3_description_1 => 'Жаяу жүргінші жолдарын жаппаңыз';
 
   @override
-  String get onboadring_3_description_2 => 'Оставленный в неположенном месте велосипед → штраф';
+  String get onboadring_3_description_2 => 'Велосипедті рұқсат етілмеген жерде қалдыру → айыппұл';
 
   @override
-  String get onboadring_3_description_3 => 'Повреждение велосипеда → штраф';
+  String get onboadring_3_description_3 => 'Велосипедке зақым келтіру → айыппұл';
 
   @override
-  String get incorrect_phone => 'Неверный номер';
+  String get incorrect_phone => 'Телефон нөмірі қате';
 
   @override
-  String get incorrect_code => 'Неверный код';
+  String get incorrect_code => 'Код қате';
 
   @override
-  String get enter_code_from_sms => 'Введите код из SMS';
+  String get enter_code_from_sms => 'SMS арқылы келген кодты енгізіңіз';
 
   @override
   String get authorization => 'Авторизация';

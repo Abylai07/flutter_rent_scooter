@@ -4,83 +4,83 @@
   "@language": {
     "description": "Тіл аты"
   },
-  "enter_phone_number": "Введите номер телефона",
+  "enter_phone_number": "Телефон нөмірін енгізіңіз",
   "@enter_phone_number": {
-    "description": "Подсказка для ввода номера телефона"
+    "description": "Телефон нөмірін енгізу үшін кеңес"
   },
-  "phone_number": "Номер телефона",
-  "next": "Далее",
+  "phone_number": "Телефон нөмірі",
+  "next": "Келесі",
   "@next": {
-    "description": "Далее"
+    "description": "Келесі"
   },
-  "start_ride": "Начать поездку",
+  "start_ride": "Жол жүруді бастау",
   "@start_ride": {
-    "description": "Начать поездку"
+    "description": "Жол жүруді бастау"
   },
   "@phone_number": {},
-  "get_code": "Получить код",
+  "get_code": "Кодты алу",
   "@get_code": {},
-  "resend_code_in": "Отправить код через 00:{seconds}",
+  "resend_code_in": "Кодты қайта жіберу: 00:{seconds}",
   "@resend_code_in": {
-    "description": "Время для повторной отправки кода",
+    "description": "Кодты қайта жіберуге дейінгі уақыт",
     "placeholders": {
       "seconds": {
         "type": "int"
       }
     }
   },
-  "pageHomeInboxCount": "{count, plural, zero{У вас нет новых сообщений} one{У вас 1 новое сообщение} other{У вас {count} новых сообщений}}",
+  "pageHomeInboxCount": "{count, plural, zero{Жаңа хабарламалар жоқ} one{1 жаңа хабарламаңыз бар} other{{count} жаңа хабарламаңыз бар}}",
   "@pageHomeInboxCount": {
-    "description": "Количество новых сообщений на главном экране",
+    "description": "Басты беттегі жаңа хабарламалар саны",
     "placeholders": {
       "count": {
         "type": "int"
       }
     }
   },
-  "onboadring_0_title": "Добро пожаловать в Almaty Bike",
+  "onboadring_0_title": "Almaty Bike-қа қош келдіңіз",
   "@onboadring_0_title": {},
-  "onboadring_0_description_0": "Быстрый, удобный и экологичный способ передвижения!",
+  "onboadring_0_description_0": "Жылдам, ыңғайлы және экологиялық қозғалыс тәсілі!",
   "@onboadring_0_description_0": {},
-  "onboadring_0_description_1": "Разблокируйте велосипед в пару кликов и наслаждайтесь поездкой",
+  "onboadring_0_description_1": "Велосипедті бірнеше басуда ашып, сапарыңыздан ләззат алыңыз",
   "@onboadring_0_description_1": {},
-  "onboadring_0_description_2": "Соблюдайте правила безопасности и ПДД",
+  "onboadring_0_description_2": "Қауіпсіздік ережелері мен ЖҚЕ сақтаңыз",
   "@onboadring_0_description_2": {},
-  "onboadring_1_title": "Как начать поездку?",
+  "onboadring_1_title": "Жол жүруді қалай бастауға болады?",
   "@onboadring_1_title": {},
-  "onboadring_1_description_0": "Найдите ближайший электробайк на карте",
+  "onboadring_1_description_0": "Картадан ең жақын электровелосипедті табыңыз",
   "@onboadring_1_description_0": {},
-  "onboadring_1_description_1": "Отсканируйте QR-код для разблокировки",
+  "onboadring_1_description_1": "Ашу үшін QR-кодты сканерлеңіз",
   "@onboadring_1_description_1": {},
-  "onboadring_1_description_2": "Наслаждайтесь поездкой и соблюдайте правила",
+  "onboadring_1_description_2": "Сапарыңыздан ләззат алыңыз және ережелерді сақтаңыз",
   "@onboadring_1_description_2": {},
-  "onboadring_1_description_3": "Завершите аренду, припарковав велосипед в разрешённом месте",
+  "onboadring_1_description_3": "Жалға алуды рұқсат етілген жерде аяқтаңыз",
   "@onboadring_1_description_3": {},
-  "onboadring_2_title": "Основные правила дорожного движения",
+  "onboadring_2_title": "Негізгі жол қозғалысы ережелері",
   "@onboadring_2_title": {},
-  "onboadring_2_description_0": "Держитесь правой стороны дороги",
+  "onboadring_2_description_0": "Жолдың оң жағымен жүріңіз",
   "@onboadring_2_description_0": {},
-  "onboadring_2_description_1": "Уступайте пешеходам на переходах",
+  "onboadring_2_description_1": "Өтпе жолдарда жаяу жүргіншілерге жол беріңіз",
   "@onboadring_2_description_1": {},
-  "onboadring_2_description_2": "Не ездите по тротуарам",
+  "onboadring_2_description_2": "Тротуармен жүрмеңіз",
   "@onboadring_2_description_2": {},
-  "onboadring_2_description_3": "Не пользуйтесь телефоном во время движения",
+  "onboadring_2_description_3": "Қозғалыс кезінде телефон қолданбаңыз",
   "@onboadring_2_description_3": {},
-  "onboadring_3_title": "Завершение аренды и штрафы",
+  "onboadring_3_title": "Жалға алуды аяқтау және айыппұлдар",
   "@onboadring_3_title": {},
-  "onboadring_3_description_0": "Паркуйтесь в разрешённых зонах",
+  "onboadring_3_description_0": "Рұқсат етілген аймақтарда тоқтаңыз",
   "@onboadring_3_description_0": {},
-  "onboadring_3_description_1": "Не блокируйте пешеходные дорожки",
+  "onboadring_3_description_1": "Жаяу жүргінші жолдарын жаппаңыз",
   "@onboadring_3_description_1": {},
-  "onboadring_3_description_2": "Оставленный в неположенном месте велосипед → штраф",
+  "onboadring_3_description_2": "Велосипедті рұқсат етілмеген жерде қалдыру → айыппұл",
   "@onboadring_3_description_2": {},
-  "onboadring_3_description_3": "Повреждение велосипеда → штраф",
+  "onboadring_3_description_3": "Велосипедке зақым келтіру → айыппұл",
   "@onboadring_3_description_3": {},
-  "incorrect_phone": "Неверный номер",
+  "incorrect_phone": "Телефон нөмірі қате",
   "@incorrect_phone": {},
-  "incorrect_code": "Неверный код",
+  "incorrect_code": "Код қате",
   "@incorrect_code": {},
-  "enter_code_from_sms": "Введите код из SMS",
+  "enter_code_from_sms": "SMS арқылы келген кодты енгізіңіз",
   "@enter_code_from_sms": {},
   "authorization": "Авторизация",
   "@authorization": {}

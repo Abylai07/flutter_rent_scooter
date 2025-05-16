@@ -1,5 +1,5 @@
-import 'package:almabike_app/core/presentation/utils/navigation/route_config.gr.dart';
-import 'package:almabike_app/core/presentation/views/auth/bloc/auth_bloc.dart';
+import 'package:almabike_app/src/core/utils/navigation/route_config.gr.dart';
+import 'package:almabike_app/src/feature/auth/bloc/auth_bloc.dart';
 import 'package:almabike_shared/almabike_shared.dart';
 import 'package:almabike_shared/core/style/tokens/bike_border_radiuses.dart';
 import 'package:almabike_shared/core/utils/networking/https/clients/i_rest_client.dart';

@@ -30,11 +30,16 @@ dependencies:
   flutter_svg: ^2.0.17
   vector_graphics: ^1.1.18
 
+  #Map
+  dgis_mobile_sdk_full: ^12.6.3
+  permission_handler: ^12.0.0+1
+
   # utils
   flutter_gen: ^5.9.0
   freezed: ^2.5.8
   freezed_annotation: ^2.4.4
   pretty_dio_logger: ^1.4.0
+
 
   # ui
   figma_squircle:
@@ -84,3 +89,6 @@ flutter_gen:
     flutter_svg: true
     rive: false
     lottie: false
+
+flutter_intl:
+  enabled: true

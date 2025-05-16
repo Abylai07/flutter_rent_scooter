@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 
+import '../colors/colors.dart';
+
 /// Util class to maintain the app theme
 class ThemeUtil extends ChangeNotifier {
   /// Singleton class with initialization
@@ -13,8 +15,17 @@ class ThemeUtil extends ChangeNotifier {
 
   late ThemeData _theme;
 
-  ThemeData get _darkTheme => ThemeData.dark();
-  ThemeData get _lightTheme => ThemeData.light();
+  ThemeData get _darkTheme => ThemeData(
+    brightness: Brightness.dark,
+    primaryColor: BikeColors.main.dark.primary,
+    colorScheme: ColorScheme.dark(primary: BikeColors.main.dark.primary),
+  );
+
+  ThemeData get _lightTheme => ThemeData(
+    brightness: Brightness.light,
+    primaryColor: BikeColors.main.dark.primary,
+    colorScheme: ColorScheme.light(primary: BikeColors.main.dark.primary),
+  );
 
   /// Returns true if the current theme is dark
   bool get isDark => _theme == _darkTheme;

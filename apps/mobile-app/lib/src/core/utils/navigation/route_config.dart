@@ -1,8 +1,8 @@
-import 'package:almabike_app/core/presentation/utils/navigation/route_config.gr.dart';
+import 'package:almabike_app/src/core/utils/navigation/route_config.gr.dart';
 import 'package:auto_route/auto_route.dart';
 
-bool isOnboarded = false;
-bool isAuthenticated = false;
+bool isOnboarded = true;
+bool isAuthenticated = true;
 
 @AutoRouterConfig(replaceInRouteName: 'View,Route')
 class AppRouter extends RootStackRouter {

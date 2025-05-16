@@ -1,4 +1,4 @@
-import 'package:almabike_app/core/presentation/utils/navigation/route_config.dart';
+import 'package:almabike_app/src/core/utils/navigation/route_config.dart';
 import 'package:almabike_shared/core/utils/networking/https/clients/i_rest_client.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';

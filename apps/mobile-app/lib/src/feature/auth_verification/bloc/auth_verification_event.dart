@@ -6,6 +6,7 @@ sealed class AuthVerificationBlocEvent with _$AuthVerificationBlocEvent {
     required String phone,
     required String code,
   }) = _AuthVerificationBlocEventVerify;
+
   const factory AuthVerificationBlocEvent.resendCode() =
       _AuthVerificationBlocEventReSendCode;
 }

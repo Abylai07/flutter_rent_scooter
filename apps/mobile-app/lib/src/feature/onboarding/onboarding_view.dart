@@ -1,4 +1,4 @@
-import 'package:almabike_app/core/presentation/utils/navigation/route_config.gr.dart';
+import 'package:almabike_app/src/core/utils/navigation/route_config.gr.dart';
 import 'package:almabike_shared/almabike_shared.dart';
 import 'package:almabike_shared/core/style/tokens/bike_border_radiuses.dart';
 import 'package:almabike_shared/core/widgets/core/bike_button.dart';

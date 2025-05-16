@@ -1,8 +1,10 @@
-import 'package:almabike_app/core/presentation/utils/navigation/route_config.gr.dart';
-import 'package:almabike_app/core/presentation/views/auth_verification/bloc/auth_verification_bloc.dart';
-import 'package:almabike_shared/almabike_shared.dart';
+import 'package:almabike_app/src/core/utils/navigation/route_config.gr.dart';
+import 'package:almabike_app/src/feature/auth_verification/bloc/auth_verification_bloc.dart';
+import 'package:almabike_shared/core/utils/l10n/l10n.dart';
 import 'package:almabike_shared/core/utils/networking/https/clients/i_rest_client.dart';
+import 'package:almabike_shared/core/widgets/core/bike_appbar.dart';
 import 'package:almabike_shared/core/widgets/core/bike_button.dart';
+import 'package:almabike_shared/core/widgets/core/bike_scaffold.dart';
 import 'package:almabike_shared/core/widgets/core/pincode_widget.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
@@ -81,7 +83,9 @@ class _AuthVerificationViewState extends State<AuthVerificationView> {
                 padding: const EdgeInsets.all(16),
                 child: BikeButton(
                   title: Localization.of(context).get_code,
-                  onPressed: () {},
+                  onPressed: () {
+                    AutoRouter.of(context).push(HomeRoute());
+                  },
                 ),
               ),
             ),
