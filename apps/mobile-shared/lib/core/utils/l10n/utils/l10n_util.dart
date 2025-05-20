@@ -1,4 +1,4 @@
-import 'package:almabike_shared/core/utils/l10n/generated/app_localizations.dart';
+import 'package:almabike_shared/core/utils/l10n/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 /// Localization utility class
@@ -12,7 +12,7 @@ class LocalizationUtil extends ChangeNotifier {
   /// Singleton instance
   static final instance = LocalizationUtil._();
 
-  final supportedLocales = AppLocalizations.supportedLocales;
+  final supportedLocales = AppLocalizations.delegate.supportedLocales;
 
   late Locale _locale;
 

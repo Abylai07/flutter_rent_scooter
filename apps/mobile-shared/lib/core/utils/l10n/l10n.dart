@@ -1,4 +1,4 @@
-import 'package:almabike_shared/core/utils/l10n/generated/app_localizations.dart'
+import 'package:almabike_shared/core/utils/l10n/generated/l10n.dart'
     show AppLocalizations;
 import 'package:flutter/material.dart';
 
@@ -6,6 +6,6 @@ import 'package:flutter/material.dart';
 class Localization {
   /// Get the AppLocalizations instance
   static AppLocalizations of(BuildContext context) {
-    return AppLocalizations.of(context)!;
+    return AppLocalizations.of(context);
   }
 }

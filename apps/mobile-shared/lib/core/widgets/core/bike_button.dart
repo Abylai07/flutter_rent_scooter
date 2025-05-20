@@ -9,7 +9,7 @@ class BikeButton extends StatelessWidget {
     this.onPressed,
     this.leading,
     this.trailing,
-    this.size = const BikeButtonSizeM(),
+    this.size = const BikeButtonSizeL(),
   });
 
   final IconData? leading;

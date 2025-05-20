@@ -22,12 +22,17 @@ class BikePincodeWidget extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        BikeText(
-          title,
-          style: BikeTypography.headline.large.copyWith(
-            color: context.theme.whenByValue(
-              light: BikeColors.text.light.primary,
-              dark: BikeColors.text.dark.primary,
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          child: BikeText(
+            title,
+            maxLines: 2,
+            align: TextAlign.center,
+            style: BikeTypography.headline.large.copyWith(
+              color: context.theme.whenByValue(
+                light: BikeColors.text.light.primary,
+                dark: BikeColors.text.dark.primary,
+              ),
             ),
           ),
         ),
@@ -36,9 +41,11 @@ class BikePincodeWidget extends StatelessWidget {
           onCompleted: onCompleted,
           controller: controller,
           defaultPinTheme: PinTheme(
+            margin: const EdgeInsets.symmetric(horizontal: 8),
             width: 56,
             height: 56,
-            textStyle: BikeTypography.body.large.copyWith(
+            textStyle: BikeTypography.headline.large.copyWith(
+              fontWeight: FontWeight.w400,
               color: context.theme.whenByValue(
                 light: BikeColors.text.light.primary,
                 dark: BikeColors.text.dark.primary,
@@ -61,7 +68,8 @@ class BikePincodeWidget extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: BikeText(
-              errorText ?? '',
+              //errorText ?? '',
+              Localization.of(context).incorrect_code,
               style: BikeTypography.body.large.copyWith(
                 color: context.theme.whenByValue(
                   light: BikeColors.main.light.red,

@@ -1,0 +1,100 @@
+{
+  "@@locale": "ru",
+  "language": "Русский",
+  "@language": {
+    "description": "Название языка"
+  },
+  "enter_phone_number": "Введите номер телефона",
+  "@enter_phone_number": {
+    "description": "Подсказка для ввода номера телефона"
+  },
+  "phone_number": "Номер телефона",
+  "next": "Далее",
+  "@next": {
+    "description": "Далее"
+  },
+  "start_ride": "Начать поездку",
+  "@start_ride": {
+    "description": "Начать поездку"
+  },
+  "@phone_number": {},
+  "get_code": "Получить код",
+  "@get_code": {},
+  "resend_code_in": "Отправить код через 00:{seconds}",
+  "@resend_code_in": {
+    "description": "Время для повторной отправки кода",
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "pageHomeInboxCount": "{count, plural, zero{У вас нет новых сообщений} one{У вас 1 новое сообщение} other{У вас {count} новых сообщений}}",
+  "@pageHomeInboxCount": {
+    "description": "Количество новых сообщений на главном экране",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "onboadring_0_title": "Добро пожаловать в Almaty Bike",
+  "@onboadring_0_title": {},
+  "onboadring_0_description_0": "Быстрый, удобный и экологичный способ передвижения!",
+  "@onboadring_0_description_0": {},
+  "onboadring_0_description_1": "Разблокируйте велосипед в пару кликов и наслаждайтесь поездкой",
+  "@onboadring_0_description_1": {},
+  "onboadring_0_description_2": "Соблюдайте правила безопасности и ПДД",
+  "@onboadring_0_description_2": {},
+  "onboadring_1_title": "Как начать поездку?",
+  "@onboadring_1_title": {},
+  "onboadring_1_description_0": "Найдите ближайший электробайк на карте",
+  "@onboadring_1_description_0": {},
+  "onboadring_1_description_1": "Отсканируйте QR-код для разблокировки",
+  "@onboadring_1_description_1": {},
+  "onboadring_1_description_2": "Наслаждайтесь поездкой и соблюдайте правила",
+  "@onboadring_1_description_2": {},
+  "onboadring_1_description_3": "Завершите аренду, припарковав велосипед в разрешённом месте",
+  "@onboadring_1_description_3": {},
+  "onboadring_2_title": "Основные правила дорожного движения",
+  "@onboadring_2_title": {},
+  "onboadring_2_description_0": "Держитесь правой стороны дороги",
+  "@onboadring_2_description_0": {},
+  "onboadring_2_description_1": "Уступайте пешеходам на переходах",
+  "@onboadring_2_description_1": {},
+  "onboadring_2_description_2": "Не ездите по тротуарам",
+  "@onboadring_2_description_2": {},
+  "onboadring_2_description_3": "Не пользуйтесь телефоном во время движения",
+  "@onboadring_2_description_3": {},
+  "onboadring_3_title": "Завершение аренды и штрафы",
+  "@onboadring_3_title": {},
+  "onboadring_3_description_0": "Паркуйтесь в разрешённых зонах",
+  "@onboadring_3_description_0": {},
+  "onboadring_3_description_1": "Не блокируйте пешеходные дорожки",
+  "@onboadring_3_description_1": {},
+  "onboadring_3_description_2": "Оставленный в неположенном месте велосипед → штраф",
+  "@onboadring_3_description_2": {},
+  "onboadring_3_description_3": "Повреждение велосипеда → штраф",
+  "@onboadring_3_description_3": {},
+  "incorrect_phone": "Неверный номер",
+  "@incorrect_phone": {},
+  "incorrect_code": "Неверный код",
+  "@incorrect_code": {},
+  "enter_code_from_sms": "Введите код из SMS",
+  "@enter_code_from_sms": {},
+  "authorization": "Авторизация",
+  "@authorization": {},
+  "setPasscodeTitle": "Для использования Face ID/Touch ID необходимо установить код доступа. Желаете установить?",
+  "yes": "Да",
+  "no": "Нет",
+  "setPasscode": "Установить код доступа",
+  "enterPasscode": "Придумайте код доступа",
+  "repeatPasscode": "Повторите код доступа",
+  "enableTouchId": "Разрешить использовать Touch ID для быстрого входа в приложение?",
+  "enableFaceId": "Разрешить использовать Face ID для быстрого входа в приложение?",
+  "inputPasscode": "Введите код доступа",
+  "rememberedCode": "Вспомнил код",
+  "forgotPasscode": "Забыли код доступа?",
+  "biometricPrompt": "Отсканируйте отпечаток пальца (или лицо) для аутентификации",
+  "error": "Произошла ошибка"
+}

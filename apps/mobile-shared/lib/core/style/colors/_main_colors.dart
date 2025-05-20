@@ -10,13 +10,13 @@ class _MainColors {
 class _MainDarkColors extends _MainColors {
   final Color blue = const Color(0xFF1D89A7);
   final Color primary = const Color(0xFF849D65);
-  final Color red = const Color(0xFFF33A72);
+  final Color red = const Color(0xFFF85C50);
   final Color yellow = const Color(0xFFFFD600);
 }
 
 class _MainLightColors extends _MainColors {
   final Color blue = const Color(0xFF134D69);
   final Color primary = const Color(0xFF849D65);
-  final Color red = const Color(0xFFF33A72);
+  final Color red = const Color(0xFFF85C50);
   final Color yellow = const Color(0xFFFFD600);
 }

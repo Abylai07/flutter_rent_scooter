@@ -1,13 +1,14 @@
+import 'package:almabike_app/src/core/utils/app_storage.dart';
 import 'package:almabike_app/src/core/utils/navigation/route_config.gr.dart';
 import 'package:auto_route/auto_route.dart';
 
-bool isOnboarded = true;
+bool isOnboarded = false;
 bool isAuthenticated = true;
 
 @AutoRouterConfig(replaceInRouteName: 'View,Route')
 class AppRouter extends RootStackRouter {
   @override
-  RouteType get defaultRouteType => RouteType.material();
+  RouteType get defaultRouteType => const RouteType.material();
 
   @override
   List<AutoRoute> get routes => [
@@ -19,11 +20,16 @@ class AppRouter extends RootStackRouter {
         AutoRoute(page: AuthRoute.page),
         AutoRoute(page: AuthVerificationRoute.page),
         AutoRoute(page: OnboardingRoute.page),
+        AutoRoute(page: PinCodeRoute.page),
+        AutoRoute(page: SetPinCodeRoute.page),
+        AutoRoute(page: QrScannerRoute.page),
       ];
 
   List<String> get unguardedRoutes => [
         AuthRoute.name,
         AuthVerificationRoute.name,
+        SetPinCodeRoute.name,
+        PinCodeRoute.name,
       ];
 
   bool isUnguardedRoute(String routeName) =>
@@ -34,6 +40,7 @@ class AppRouter extends RootStackRouter {
     AutoRouteGuard.simple(
       (resolver, router) {
         final routeName = resolver.routeName;
+        isOnboarded = AppStorage.isOnboarded;
         if (isOnboarded) {
           final isGuarded = isAuthenticated || isUnguardedRoute(routeName);
           if (isGuarded) {
@@ -46,7 +53,7 @@ class AppRouter extends RootStackRouter {
           if (isGuarded) {
             resolver.next();
           } else {
-            resolver.redirect(OnboardingRoute());
+            resolver.redirect(const OnboardingRoute());
             isOnboarded = true;
           }
         }

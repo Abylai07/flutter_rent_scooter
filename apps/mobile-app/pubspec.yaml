@@ -19,7 +19,12 @@ dependencies:
   mask_text_input_formatter: ^2.9.0
   get_storage: ^2.1.1
   path_provider: ^2.1.5
-
+  local_auth: ^2.3.0
+  flutter_secure_storage: ^9.2.4
+  equatable: ^2.0.7
+  flutter_svg: ^2.0.17
+  flutter_native_splash: ^2.4.4
+  mobile_scanner: ^6.0.10
 
 
   almabike_shared:
@@ -32,6 +37,14 @@ dev_dependencies:
   auto_route_generator: ^9.3.0
   flutter_lints: ^5.0.0
   build_runner: ^2.4.15
+
+
+flutter_native_splash:
+  color: "#849D65"
+  color_dark: "#849D65"
+  android_12:
+    color: "#849D65"
+    color_dark: "#849D65"
 
 flutter:
   uses-material-design: true

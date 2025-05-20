@@ -142,32 +142,37 @@ class _BikeMapWidgetState extends State<BikeMapWidget> {
           );
         },
         builder: (context, state) {
-          // return sdk.MapWidget(
-          //   sdkContext: sdkContext,
-          //   mapOptions: sdk.MapOptions(),
-          //   controller: mapWidgetController,
-          // );
-
-          return FlutterMap(
-            mapController: controller,
-            options: MapOptions(
-              initialCenter: const LatLng(43.2389498, 76.889709),
-              initialZoom: 12,
-              onTap: (tapPosition, point) {
-                widget.onMapTapped?.call();
-              },
-            ),
+          return Stack(
             children: [
-              TileLayer(
-                urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
-                userAgentPackageName: 'com.example.app',
-              ),
-              MarkerLayer(
-                markers: markers,
+              sdk.MapWidget(
+                sdkContext: sdkContext,
+                mapOptions: sdk.MapOptions(),
+                controller: mapWidgetController,
               ),
               widget.child,
             ],
           );
+
+          // return FlutterMap(
+          //   mapController: controller,
+          //   options: MapOptions(
+          //     initialCenter: const LatLng(43.2389498, 76.889709),
+          //     initialZoom: 12,
+          //     onTap: (tapPosition, point) {
+          //       widget.onMapTapped?.call();
+          //     },
+          //   ),
+          //   children: [
+          //     TileLayer(
+          //       urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+          //       userAgentPackageName: 'com.example.app',
+          //     ),
+          //     MarkerLayer(
+          //       markers: markers,
+          //     ),
+          //     widget.child,
+          //   ],
+          // );
         },
       ),
     );

@@ -6,11 +6,13 @@ class BikeText extends StatelessWidget {
     super.key,
     this.style,
     this.maxLines,
+    this.align,
   });
 
   final int? maxLines;
   final TextStyle? style;
   final String title;
+  final TextAlign? align;
 
   @override
   Widget build(BuildContext context) {
@@ -19,6 +21,7 @@ class BikeText extends StatelessWidget {
       style: style,
       overflow: TextOverflow.ellipsis,
       maxLines: maxLines,
+      textAlign: align,
     );
   }
 }
