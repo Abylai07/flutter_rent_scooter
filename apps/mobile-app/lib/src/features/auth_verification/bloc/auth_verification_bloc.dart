@@ -1,5 +1,5 @@
 import 'package:almabike_app/src/core/utils/navigation/route_config.dart';
-import 'package:almabike_shared/core/utils/networking/https/clients/i_rest_client.dart';
+import 'package:almabike_shared/almabike_shared.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -15,8 +15,11 @@ class AuthVerificationBloc
       await event.when(
         verify: (phone, code) async {
           try {
-            await restClient.login('+7$phone', code);
+            final result = await restClient.login('+7$phone', code);
             isAuthenticated = true;
+            AppStorage.accessToken = result.accessToken;
+            AppStorage.refreshToken = result.refreshToken;
+
             emit(const AuthVerificationBlocState.success());
           } catch (e) {
             emit(AuthVerificationBlocState.error(message: e.toString()));
@@ -27,5 +30,5 @@ class AuthVerificationBloc
     });
   }
 
-  final IRestClient restClient;
+  final AuthRestClient restClient;
 }

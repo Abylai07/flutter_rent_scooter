@@ -18,7 +18,7 @@ Future<void> showBiometricDialog({
         data: CupertinoThemeData(
           brightness: context.theme.brightness,
           scaffoldBackgroundColor:
-              BikeColors.background.light.alert, // Background color
+              BikeColors.background.light.lightGray, // Background color
         ),
         child: CupertinoAlertDialog(
           content: Column(

@@ -22,5 +22,7 @@ class PinCompleted extends PinCodeEvent {}
 
 class PinError extends PinCodeEvent {}
 
+class PinSuccess extends PinCodeEvent {}
+
 class ResetPinEntry extends PinCodeEvent {}
 

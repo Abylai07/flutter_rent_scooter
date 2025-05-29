@@ -15,6 +15,7 @@ class PinCodeState extends Equatable {
   final PinEntryStep currentStep;
   final bool isError;
   final bool isProcessing;
+  final bool isSuccess;
 
   const PinCodeState({
     this.enteredPin = '',
@@ -23,6 +24,7 @@ class PinCodeState extends Equatable {
     this.currentStep = PinEntryStep.initial,
     this.isError = false,
     this.isProcessing = false,
+    this.isSuccess = false,
   });
 
   PinCodeState copyWith({
@@ -32,6 +34,7 @@ class PinCodeState extends Equatable {
     PinEntryStep? currentStep,
     bool? isError,
     bool? isProcessing,
+    bool? isSuccess,
   }) {
     return PinCodeState(
       enteredPin: enteredPin ?? this.enteredPin,
@@ -40,6 +43,7 @@ class PinCodeState extends Equatable {
       currentStep: currentStep ?? this.currentStep,
       isError: isError ?? this.isError,
       isProcessing: isProcessing ?? this.isProcessing,
+      isSuccess: isSuccess ?? this.isSuccess,
     );
   }
 

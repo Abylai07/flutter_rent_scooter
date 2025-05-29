@@ -1,8 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../core/utils/app_storage.dart';
-import '../../../core/utils/services/locale_auth_service.dart';
 
 part 'pin_code_event.dart';
 part 'pin_code_state.dart';
@@ -22,6 +20,7 @@ class PinCodeBloc extends Bloc<PinCodeEvent, PinCodeState> {
       emit(state.copyWith(
         enteredPin: newPin,
         isError: false,
+        isSuccess: false,
       ));
 
       // Auto-check if pin is complete
@@ -36,11 +35,13 @@ class PinCodeBloc extends Bloc<PinCodeEvent, PinCodeState> {
       emit(state.copyWith(
         enteredPin: state.enteredPin.substring(0, state.enteredPin.length - 1),
         isError: false,
+        isSuccess: false,
       ));
     } else if (state.enteredPin.isEmpty && state.currentStep.isConfirmation) {
       emit(state.copyWith(
         enteredPin: '',
         isError: false,
+          isSuccess: false,
         currentStep: PinEntryStep.initial
       ));
     }
@@ -52,13 +53,12 @@ class PinCodeBloc extends Bloc<PinCodeEvent, PinCodeState> {
       emit(state.copyWith(
         firstPin: state.enteredPin,
         enteredPin: '',
+        isSuccess: true,
         currentStep: PinEntryStep.confirmation,
       ));
     } else {
       // Confirmation step, check if pins match
       if (state.enteredPin == state.firstPin) {
-        // Success! Save the pin and check for biometrics
-       // emit(state.copyWith(isProcessing: true));
 
         emit(state.copyWith(isProcessing: false));
       } else {
@@ -75,6 +75,7 @@ class PinCodeBloc extends Bloc<PinCodeEvent, PinCodeState> {
       isError: true,
     ));
   }
+
 
   void _onResetPinEntry(ResetPinEntry event, Emitter<PinCodeState> emit) {
     emit(const PinCodeState());

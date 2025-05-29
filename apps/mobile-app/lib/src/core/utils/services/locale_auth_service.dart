@@ -1,7 +1,7 @@
 import 'dart:async';
 
-import 'package:almabike_app/src/core/utils/app_storage.dart';
-import 'package:flutter/material.dart';
+import 'package:almabike_shared/core/utils/app_storage.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:local_auth/local_auth.dart';
@@ -56,7 +56,7 @@ class LocalAuthService {
         localizedReason: desc,
         options: const AuthenticationOptions(
           stickyAuth: true,
-          biometricOnly: true,
+          biometricOnly: kReleaseMode,
         ),
       );
     } on PlatformException catch (e) {

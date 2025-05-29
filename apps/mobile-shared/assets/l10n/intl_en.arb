@@ -29,15 +29,6 @@
       }
     }
   },
-  "pageHomeInboxCount": "{count, plural, zero{You have no new messages} one{You have 1 new message} other{You have {count} new messages}}",
-  "@pageHomeInboxCount": {
-    "description": "Number of new messages on the home screen",
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
   "onboadring_0_title": "Welcome to Almaty Bike",
   "@onboadring_0_title": {},
   "onboadring_0_description_0": "A fast, convenient and eco-friendly way to get around!",
@@ -96,5 +87,78 @@
   "rememberedCode": "I remembered the code",
   "forgotPasscode": "Forgot passcode?",
   "biometricPrompt": "Scan your fingerprint (or face) for authentication",
-  "error": "An error occurred"
+  "error": "An error occurred",
+  "profile": "Profile",
+  "enter_number_manually": "Enter number manually",
+  "enter_bike_number": "Enter bike number",
+  "number": "Number",
+  "booking_notice": "Booking will be active for 10 minutes, after which it will be cancelled",
+  "cancel": "Cancel",
+  "book": "Book",
+  "inspect_transport": "Inspect the transport for visible external damage. If you find anything, it's better to choose another vehicle",
+  "wallet": "Wallet",
+  "my_transport": "My transport",
+  "history": "History",
+  "fines": "Fines",
+  "security": "Security",
+  "bank_cards": "Bank cards",
+  "insurance": "Insurance",
+  "how_to_rent": "How to rent",
+  "training": "Training",
+  "languageTitle": "Language",
+  "support": "Support",
+  "logout": "Logout",
+  "logout_confirmation": "Are you sure you want to log out?",
+  "cancel_short": "Cancel",
+
+
+  "verification": "Verification",
+  "step_num_of_3": "Step {step} of 3",
+  "@step_num_of_3": {
+    "placeholders": {
+      "step": {
+        "type": "int"
+      }
+    }
+  },
+  "enter_data": "Enter data",
+  "not_resident": "I am not a resident of Kazakhstan",
+  "six_digit_code": "Six-digit document code",
+  "instructions": "In Kaspi.kz or eGov, go to 'Digital Documents', select 'Identity Card', then tap 'Show Document' or 'Grant Access'",
+  "check_personal_data": "Check your personal data",
+  "full_name": "Full name",
+  "iin": "IIN",
+  "document_number": "Document number",
+  "birth_date": "Date of birth",
+  "birth_place": "Place of birth",
+  "nationality": "Nationality",
+  "issuing_authority": "Issuing authority",
+  "issue_expiry_date": "Issue date - Expiry date",
+  "confirm_identity": "Confirm your identity",
+  "face_control_instruction": "Pass face control\nto complete verification",
+  "no_objects_background": "Make sure no people or objects block your face in the background",
+  "start_verification": "Proceed",
+  "verification_in_progress": "Verification in progress, please wait",
+  "do_not_close": "Do not close the app or lock the screen.\nVerification speed depends on internet quality",
+  "verification_success": "Verification completed successfully",
+  "verification_failed": "Verification failed",
+  "retry_verification": "Please try again. Make sure the data is correct",
+  "try_again": "Try again",
+  "face_control_failed": "Face control failed. Please try again",
+  "upload_passport": "Upload passport page",
+  "scan_or_upload": "Scan or upload passport",
+  "take_photo": "Take photo",
+  "upload_from_phone": "Upload from phone",
+  "photo_quality_requirement": "The photo must be clear, not blurry, and without sunlight glare",
+  "retake": "Retake",
+  "faceIdLogin": "Login with Face ID",
+  "touchIdLogin": "Login with Touch ID",
+  "passcodeLogin": "Login with passcode",
+  "changePasscode": "Change passcode",
+  "changePhoneNumber": "Change phone number",
+  "personalInfo": "Personal information",
+  "save": "Save",
+  "deleteAccount": "Delete account",
+  "deleteAccountConfirmation": "Are you sure you want to delete your account? Account data will be permanently deleted.",
+  "confirmDelete": "Delete"
 }

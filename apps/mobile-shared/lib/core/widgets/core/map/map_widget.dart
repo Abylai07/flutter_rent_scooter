@@ -2,7 +2,6 @@ import 'dart:developer';
 
 import 'package:almabike_shared/almabike_shared.dart';
 import 'package:almabike_shared/core/style/tokens/bike_border_radiuses.dart';
-import 'package:almabike_shared/core/utils/networking/https/models/device_model.dart';
 import 'package:almabike_shared/core/utils/service/bike_debouncer.dart';
 import 'package:almabike_shared/core/widgets/core/bike_text_widget.dart';
 import 'package:almabike_shared/core/widgets/core/map/bloc/map_bloc.dart';
@@ -10,8 +9,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
-import 'package:dgis_mobile_sdk_full/dgis.dart' as sdk;
+import 'package:dgis_mobile_sdk_map/dgis.dart' as sdk;
 
+import '../../../utils/networking/https/models/device/device_model.dart';
 import 'map_common.dart';
 
 class BikeMapWidget extends StatefulWidget {
@@ -49,7 +49,7 @@ class _BikeMapWidgetState extends State<BikeMapWidget> {
             latitude: sdk.Latitude(43.238949),
             longitude: sdk.Longitude(76.889709),
           ),
-          zoom: sdk.Zoom(12),
+          zoom: sdk.Zoom(14),
         );
       });
 
@@ -64,6 +64,8 @@ class _BikeMapWidgetState extends State<BikeMapWidget> {
     }
     super.initState();
   }
+
+
   void addMarkers(List<Device> devices) {
     markers.clear();
     markers = devices.map((e) {
@@ -148,6 +150,38 @@ class _BikeMapWidgetState extends State<BikeMapWidget> {
                 sdkContext: sdkContext,
                 mapOptions: sdk.MapOptions(),
                 controller: mapWidgetController,
+                child: const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 6, vertical: 6),
+                  child: Stack(
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Align(
+                            alignment: Alignment.topRight,
+                            child: sdk.TrafficWidget(),
+                          ),
+                          Spacer(),
+                          Align(
+                            alignment: Alignment.centerRight,
+                            child: Column(
+                              children: [
+                                sdk.ZoomWidget(),
+                                Padding(
+                                  padding: EdgeInsets.only(top: 8),
+                                  child: sdk.CompassWidget(),
+                                ),
+
+                              ],
+                            ),
+                          ),
+                          Spacer(),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
               ),
               widget.child,
             ],

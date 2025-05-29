@@ -1,5 +1,7 @@
+import 'package:almabike_app/src/core/utils/navigation/route_config.dart';
 import 'package:almabike_app/src/features/qr_scanner/widgets/scanner_widget.dart';
 import 'package:almabike_shared/core/style/tokens/bike_icons.dart';
+import 'package:almabike_shared/core/utils/l10n/l10n.dart';
 import 'package:almabike_shared/core/widgets/core/bike_button.dart';
 import 'package:almabike_shared/core/widgets/core/bike_icon_button.dart';
 import 'package:flutter/material.dart';
@@ -29,6 +31,7 @@ class _QrScannerViewState extends State<QrScannerView> {
     }
   }
 
+
   @override
   Widget build(BuildContext context) {
     final scanWindow = Rect.fromCenter(
@@ -52,20 +55,23 @@ class _QrScannerViewState extends State<QrScannerView> {
                       size: const BikeIconButtonSizeL(),
                       onPressed: () => context.router.maybePop(),
                       icon: BikeIcons.arrow_left,
+                      iconSize: 24,
                     ),
                     Expanded(
                       child: Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 16.0),
                         child: BikeButton(
                           size: const BikeButtonSizeM(),
-                          onPressed: (){},
-                          title: 'Ввести номер вручную',
+                          onPressed: () => context.router.push(const EnterNumberRoute()),
+                          title: Localization.of(context).enter_number_manually,
                         ),
                       ),
                     ),
                     BikeIconButton(
                       size: const BikeIconButtonSizeL(),
-                      onPressed: () => context.router.maybePop(),
+                      onPressed: () {
+                        controller.toggleTorch();
+                      },
                       icon: BikeIcons.sun,
                     ),
                   ],

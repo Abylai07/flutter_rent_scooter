@@ -33,7 +33,7 @@ class BikeTextField extends StatelessWidget {
             padding: const EdgeInsets.only(bottom: 8),
             child: BikeText(
               title!,
-              style: BikeTypography.button.small.copyWith(
+              style: BikeTypography.body.small.copyWith(
                 color: context.theme.whenByValue(
                   light: BikeColors.text.light.secondary,
                   dark: BikeColors.text.dark.secondary,
@@ -43,16 +43,20 @@ class BikeTextField extends StatelessWidget {
           ),
         TextFormField(
           controller: controller,
+          onTapOutside: (event) {
+            FocusManager.instance.primaryFocus?.unfocus();
+          },
           decoration: InputDecoration(
             isDense: true,
+            contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 18),
             hintStyle: BikeTypography.body.large.copyWith(
               color: context.theme.whenByValue(
-                light: BikeColors.text.light.secondary,
-                dark: BikeColors.text.dark.secondary,
+                light: BikeColors.text.light.tertiary,
+                dark: BikeColors.text.dark.tertiary,
               ),
             ),
             enabledBorder: OutlineInputBorder(
-              borderRadius: BikeBorderRadiuses.radius20,
+              borderRadius: BikeBorderRadiuses.radius16,
               borderSide: BorderSide(
                 color: context.theme.whenByValue(
                   light: BikeColors.stroke.light.main,
@@ -61,7 +65,7 @@ class BikeTextField extends StatelessWidget {
               ),
             ),
             focusedBorder: OutlineInputBorder(
-              borderRadius: BikeBorderRadiuses.radius20,
+              borderRadius: BikeBorderRadiuses.radius16,
               borderSide: BorderSide(
                 color: context.theme.whenByValue(
                   light: BikeColors.stroke.light.main,

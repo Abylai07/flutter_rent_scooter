@@ -1,7 +1,8 @@
-import 'package:almabike_shared/core/utils/networking/https/clients/i_rest_client.dart';
-import 'package:almabike_shared/core/utils/networking/https/models/device_model.dart';
+import 'package:almabike_shared/almabike_shared.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+
+import '../../../../utils/networking/https/models/device/device_model.dart';
 
 part 'map_bloc.freezed.dart';
 part 'map_event.dart';
@@ -24,5 +25,5 @@ class MapBloc extends Bloc<MapBlocEvent, MapBlocState> {
     });
   }
 
-  final IRestClient restClient;
+  final DeviceRestClient restClient;
 }

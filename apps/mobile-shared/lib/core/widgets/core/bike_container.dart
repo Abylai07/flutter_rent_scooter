@@ -14,7 +14,7 @@ class BikeContainer extends StatelessWidget {
     this.margin,
     this.shape = BoxShape.rectangle,
     this.withBorder = false,
-    this.withShadow = true,
+    this.withShadow = false,
   });
 
   final BorderRadius? borderRadius;

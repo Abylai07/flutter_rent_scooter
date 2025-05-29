@@ -12,7 +12,7 @@ dependencies:
   flutter:
     sdk: flutter
   provider: ^6.1.2
-  auto_route: ^9.3.0+1
+  auto_route: ^10.0.1
   rename_app: ^1.6.2
   flutter_launcher_icons: ^0.14.3
   flutter_bloc: ^9.0.0
@@ -25,7 +25,18 @@ dependencies:
   flutter_svg: ^2.0.17
   flutter_native_splash: ^2.4.4
   mobile_scanner: ^6.0.10
+  geolocator: ^13.0.3
+  animated_custom_dropdown: ^3.1.1
+  flutter_screenutil: ^5.9.3
+  percent_indicator: ^4.2.5
 
+
+  #Map
+  dgis_mobile_sdk_map: ^12.6.3
+  permission_handler: ^12.0.0+1
+
+  freezed: ^2.5.8
+  freezed_annotation: ^2.4.4
 
   almabike_shared:
     path: ../mobile-shared
@@ -34,7 +45,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  auto_route_generator: ^9.3.0
+  auto_route_generator: ^10.0.1
   flutter_lints: ^5.0.0
   build_runner: ^2.4.15
 

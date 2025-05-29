@@ -9,12 +9,14 @@ class BikeIconButton extends StatelessWidget {
     this.color,
     this.onPressed,
     this.size = const BikeIconButtonSizeS(),
+    this.iconSize,
   });
 
   final Color? color;
   final IconData icon;
   final VoidCallback? onPressed;
   final IBikeIconButtonSize size;
+  final double? iconSize;
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +34,7 @@ class BikeIconButton extends StatelessWidget {
           iconSize: WidgetStateProperty.all(size.iconSize),
           iconColor: WidgetStateProperty.all(color),
         ),
-        icon: Icon(icon),
+        icon: Icon(icon, size: iconSize),
       ),
     );
   }

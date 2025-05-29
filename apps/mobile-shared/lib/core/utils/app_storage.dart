@@ -49,7 +49,11 @@ class AppStorage {
     if (value != null) _setValue(_fcmToken, value);
   }
 
-  static void clear() => _box.erase();
+  static void clear() {
+    final keepIsOnboarded = isOnboarded;
+    _box.erase();
+    isOnboarded = keepIsOnboarded;
+  }
 
   static String _getSystemLocale() {
     final locale = Platform.localeName.split('_').first;

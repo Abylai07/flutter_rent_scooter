@@ -1,11 +1,12 @@
-import 'package:almabike_app/src/core/utils/navigation/route_config.gr.dart';
+import 'package:almabike_app/src/core/utils/navigation/route_config.dart';
 import 'package:almabike_app/src/features/auth/bloc/auth_bloc.dart';
 import 'package:almabike_shared/almabike_shared.dart';
 import 'package:almabike_shared/core/style/tokens/bike_border_radiuses.dart';
-import 'package:almabike_shared/core/utils/networking/https/clients/i_rest_client.dart';
+import 'package:almabike_shared/core/utils/l10n/generated/l10n.dart';
 import 'package:almabike_shared/core/widgets/core/bike_button.dart';
 import 'package:almabike_shared/core/widgets/core/bike_text_widget.dart';
 import 'package:almabike_shared/gen/assets.gen.dart';
+import 'package:animated_custom_dropdown/custom_dropdown.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -40,7 +41,7 @@ class _AuthViewState extends State<AuthView> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => AuthBloc(restClient: context.read<IRestClient>()),
+      create: (context) => AuthBloc(restClient: context.read<AuthRestClient>()),
       child: BlocConsumer<AuthBloc, AuthBlocState>(
         listener: (context, state) {
           state.whenOrNull(success: (phone) {
@@ -74,44 +75,78 @@ class _AuthViewState extends State<AuthView> {
                             ),
                           ),
                         ),
-                        InkWell(
-                          borderRadius: BikeBorderRadiuses.radius16,
-                          onTap: () {
-                            final localization =
-                                context.read<LocalizationUtil>();
-
-                            final localeEn = localization.supportedLocales[0];
-                            final localeRu = localization.supportedLocales[2];
-
-                            final locale = localization.locale;
-                            if (locale == localeEn) {
-                              localization.setRu();
-                            } else if (locale == localeRu) {
-                              localization.setKk();
-                            } else {
-                              localization.setEn();
-                            }
-                          },
-                          child: Container(
-                            height: 32,
-                            width: 94,
-                            decoration: BoxDecoration(
-                              color: context.theme.whenByValue(
-                                light: BikeColors.background.light.element,
-                                dark: BikeColors.background.dark.element,
-                              ),
-                              borderRadius: BikeBorderRadiuses.radius16,
-                            ),
-                            child: Center(
-                              child: BikeText(
-                                Localization.of(context).language,
-                                style: BikeTypography.body.medium.copyWith(
-                                  color: context.theme.whenByValue(
-                                    light: BikeColors.text.light.primary,
-                                    dark: BikeColors.text.dark.primary,
+                        SizedBox(
+                          key: ValueKey(AppStorage.locale),
+                          height: 34,
+                          width: 110,
+                          child: Transform.translate(
+                            offset: const Offset(0, -8),
+                            child: CustomDropdown<Locale>(
+                              excludeSelected: false,
+                              hideSelectedFieldWhenExpanded: true,
+                              closedHeaderPadding: const EdgeInsets.symmetric(
+                                  vertical: 8, horizontal: 12),
+                              items: AppLocalizations.delegate.supportedLocales,
+                              decoration: CustomDropdownDecoration(
+                                closedSuffixIcon: Padding(
+                                  padding: const EdgeInsets.only(top: 4.0),
+                                  child: Icon(
+                                    BikeIcons.arrow_down,
+                                    size: 12,
+                                    color: context.theme.whenByValue(
+                                        light: BikeColors.text.light.secondary,
+                                        dark: BikeColors.text.dark.secondary),
                                   ),
                                 ),
+                                closedFillColor: context.theme.whenByValue(
+                                  light: BikeColors.background.light.element,
+                                  dark: BikeColors.background.dark.element,
+                                ),
+                                listItemDecoration: ListItemDecoration(
+                                  selectedColor: context.theme.whenByValue(
+                                    light: BikeColors.background.light.grey,
+                                    dark: BikeColors
+                                        .background.dark.buttonSecondary,
+                                  ),
+                                ),
+                                expandedFillColor: context.theme.whenByValue(
+                                  light: BikeColors.background.light.element,
+                                  dark: BikeColors.background.dark.element,
+                                ),
+                                closedBorderRadius: BikeBorderRadiuses.radius16,
                               ),
+                              initialItem: Locale(AppStorage.locale),
+                              onChanged: (value) {
+                                final localization =
+                                    context.read<LocalizationUtil>();
+                                final locale = value ?? localization.locale;
+                                localization.set(locale: locale);
+                              },
+                              listItemBuilder: (context, item, show, func) {
+                                return Text(
+                                  item.languageCode == 'kk'
+                                      ? 'Қазақша'
+                                      : item.languageCode == 'ru'
+                                          ? 'Русский'
+                                          : 'English',
+                                  style: BikeTypography.body.medium.copyWith(
+                                    color: context.theme.whenByValue(
+                                      light: BikeColors.text.light.primary,
+                                      dark: BikeColors.text.dark.primary,
+                                    ),
+                                  ),
+                                );
+                              },
+                              headerBuilder: (context, item, show) {
+                                return Text(
+                                  Localization.of(context).language,
+                                  style: BikeTypography.body.medium.copyWith(
+                                      color: context.theme.whenByValue(
+                                    light: BikeColors.text.light.secondary,
+                                    dark: BikeColors.text.dark.secondary,
+                                  )),
+                                );
+                              },
                             ),
                           ),
                         ),
@@ -166,7 +201,7 @@ class _AuthViewState extends State<AuthView> {
                         controller.clear();
                       },
                     ),
-                    if(widget.showRememberButton)...[
+                    if (widget.showRememberButton) ...[
                       const SizedBox(height: 16),
                       TextButton(
                         onPressed: () => context.router.maybePop(),

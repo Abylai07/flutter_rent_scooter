@@ -12,6 +12,7 @@ class _IconDarkColors extends _IconColors {
   final Color grey = const Color(0xFF7E8080);
   final Color black = const Color(0xFF000000);
   final Color white = const Color(0xFFFFFFFF);
+  final Color gray = const Color(0xFF565656);
 
 }
 
@@ -20,4 +21,5 @@ class _IconLightColors extends _IconColors {
   final Color grey = const Color(0xFFCFD0D0);
   final Color black = const Color(0xFF000000);
   final Color white = const Color(0xFFFFFFFF);
+  final Color gray = const Color(0xFFCFD0D0);
 }

@@ -8,28 +8,15 @@
 // ignore_for_file: type=lint
 // coverage:ignore-file
 
-// ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:almabike_app/src/features/auth/auth_view.dart' as _i2;
-import 'package:almabike_app/src/features/auth_verification/auth_verification_view.dart'
-    as _i1;
-import 'package:almabike_app/src/features/home/home_view.dart' as _i3;
-import 'package:almabike_app/src/features/onboarding/onboarding_view.dart'
-    as _i4;
-import 'package:almabike_app/src/features/pin_code/pin_code_view.dart' as _i5;
-import 'package:almabike_app/src/features/pin_code/set_pin_code_view.dart'
-    as _i7;
-import 'package:almabike_app/src/features/qr_scanner/qr_scanner.dart' as _i6;
-import 'package:auto_route/auto_route.dart' as _i8;
-import 'package:flutter/material.dart' as _i9;
+part of 'route_config.dart';
 
 /// generated route for
-/// [_i1.AuthVerificationView]
-class AuthVerificationRoute
-    extends _i8.PageRouteInfo<AuthVerificationRouteArgs> {
+/// [AuthVerificationView]
+class AuthVerificationRoute extends PageRouteInfo<AuthVerificationRouteArgs> {
   AuthVerificationRoute({
-    _i9.Key? key,
+    Key? key,
     required String phone,
-    List<_i8.PageRouteInfo>? children,
+    List<PageRouteInfo>? children,
   }) : super(
          AuthVerificationRoute.name,
          args: AuthVerificationRouteArgs(key: key, phone: phone),
@@ -38,11 +25,11 @@ class AuthVerificationRoute
 
   static const String name = 'AuthVerificationRoute';
 
-  static _i8.PageInfo page = _i8.PageInfo(
+  static PageInfo page = PageInfo(
     name,
     builder: (data) {
       final args = data.argsAs<AuthVerificationRouteArgs>();
-      return _i1.AuthVerificationView(key: args.key, phone: args.phone);
+      return AuthVerificationView(key: args.key, phone: args.phone);
     },
   );
 }
@@ -50,7 +37,7 @@ class AuthVerificationRoute
 class AuthVerificationRouteArgs {
   const AuthVerificationRouteArgs({this.key, required this.phone});
 
-  final _i9.Key? key;
+  final Key? key;
 
   final String phone;
 
@@ -58,15 +45,25 @@ class AuthVerificationRouteArgs {
   String toString() {
     return 'AuthVerificationRouteArgs{key: $key, phone: $phone}';
   }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (other is! AuthVerificationRouteArgs) return false;
+    return key == other.key && phone == other.phone;
+  }
+
+  @override
+  int get hashCode => key.hashCode ^ phone.hashCode;
 }
 
 /// generated route for
-/// [_i2.AuthView]
-class AuthRoute extends _i8.PageRouteInfo<AuthRouteArgs> {
+/// [AuthView]
+class AuthRoute extends PageRouteInfo<AuthRouteArgs> {
   AuthRoute({
-    _i9.Key? key,
+    Key? key,
     bool showRememberButton = false,
-    List<_i8.PageRouteInfo>? children,
+    List<PageRouteInfo>? children,
   }) : super(
          AuthRoute.name,
          args: AuthRouteArgs(key: key, showRememberButton: showRememberButton),
@@ -75,13 +72,13 @@ class AuthRoute extends _i8.PageRouteInfo<AuthRouteArgs> {
 
   static const String name = 'AuthRoute';
 
-  static _i8.PageInfo page = _i8.PageInfo(
+  static PageInfo page = PageInfo(
     name,
     builder: (data) {
       final args = data.argsAs<AuthRouteArgs>(
         orElse: () => const AuthRouteArgs(),
       );
-      return _i2.AuthView(
+      return AuthView(
         key: args.key,
         showRememberButton: args.showRememberButton,
       );
@@ -92,7 +89,7 @@ class AuthRoute extends _i8.PageRouteInfo<AuthRouteArgs> {
 class AuthRouteArgs {
   const AuthRouteArgs({this.key, this.showRememberButton = false});
 
-  final _i9.Key? key;
+  final Key? key;
 
   final bool showRememberButton;
 
@@ -100,84 +97,270 @@ class AuthRouteArgs {
   String toString() {
     return 'AuthRouteArgs{key: $key, showRememberButton: $showRememberButton}';
   }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (other is! AuthRouteArgs) return false;
+    return key == other.key && showRememberButton == other.showRememberButton;
+  }
+
+  @override
+  int get hashCode => key.hashCode ^ showRememberButton.hashCode;
 }
 
 /// generated route for
-/// [_i3.HomeView]
-class HomeRoute extends _i8.PageRouteInfo<void> {
-  const HomeRoute({List<_i8.PageRouteInfo>? children})
+/// [BankCardView]
+class BankCardRoute extends PageRouteInfo<void> {
+  const BankCardRoute({List<PageRouteInfo>? children})
+    : super(BankCardRoute.name, initialChildren: children);
+
+  static const String name = 'BankCardRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const BankCardView();
+    },
+  );
+}
+
+/// generated route for
+/// [EnterNumberView]
+class EnterNumberRoute extends PageRouteInfo<void> {
+  const EnterNumberRoute({List<PageRouteInfo>? children})
+    : super(EnterNumberRoute.name, initialChildren: children);
+
+  static const String name = 'EnterNumberRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const EnterNumberView();
+    },
+  );
+}
+
+/// generated route for
+/// [HistoryView]
+class HistoryRoute extends PageRouteInfo<void> {
+  const HistoryRoute({List<PageRouteInfo>? children})
+    : super(HistoryRoute.name, initialChildren: children);
+
+  static const String name = 'HistoryRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const HistoryView();
+    },
+  );
+}
+
+/// generated route for
+/// [HomeView]
+class HomeRoute extends PageRouteInfo<void> {
+  const HomeRoute({List<PageRouteInfo>? children})
     : super(HomeRoute.name, initialChildren: children);
 
   static const String name = 'HomeRoute';
 
-  static _i8.PageInfo page = _i8.PageInfo(
+  static PageInfo page = PageInfo(
     name,
     builder: (data) {
-      return const _i3.HomeView();
+      return const HomeView();
     },
   );
 }
 
 /// generated route for
-/// [_i4.OnboardingView]
-class OnboardingRoute extends _i8.PageRouteInfo<void> {
-  const OnboardingRoute({List<_i8.PageRouteInfo>? children})
+/// [LanguageView]
+class LanguageRoute extends PageRouteInfo<void> {
+  const LanguageRoute({List<PageRouteInfo>? children})
+    : super(LanguageRoute.name, initialChildren: children);
+
+  static const String name = 'LanguageRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const LanguageView();
+    },
+  );
+}
+
+/// generated route for
+/// [OnboardingView]
+class OnboardingRoute extends PageRouteInfo<void> {
+  const OnboardingRoute({List<PageRouteInfo>? children})
     : super(OnboardingRoute.name, initialChildren: children);
 
   static const String name = 'OnboardingRoute';
 
-  static _i8.PageInfo page = _i8.PageInfo(
+  static PageInfo page = PageInfo(
     name,
     builder: (data) {
-      return const _i4.OnboardingView();
+      return const OnboardingView();
     },
   );
 }
 
 /// generated route for
-/// [_i5.PinCodeView]
-class PinCodeRoute extends _i8.PageRouteInfo<void> {
-  const PinCodeRoute({List<_i8.PageRouteInfo>? children})
+/// [PinCodeView]
+class PinCodeRoute extends PageRouteInfo<void> {
+  const PinCodeRoute({List<PageRouteInfo>? children})
     : super(PinCodeRoute.name, initialChildren: children);
 
   static const String name = 'PinCodeRoute';
 
-  static _i8.PageInfo page = _i8.PageInfo(
+  static PageInfo page = PageInfo(
     name,
     builder: (data) {
-      return const _i5.PinCodeView();
+      return const PinCodeView();
     },
   );
 }
 
 /// generated route for
-/// [_i6.QrScannerView]
-class QrScannerRoute extends _i8.PageRouteInfo<void> {
-  const QrScannerRoute({List<_i8.PageRouteInfo>? children})
+/// [ProfileView]
+class ProfileRoute extends PageRouteInfo<void> {
+  const ProfileRoute({List<PageRouteInfo>? children})
+    : super(ProfileRoute.name, initialChildren: children);
+
+  static const String name = 'ProfileRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const ProfileView();
+    },
+  );
+}
+
+/// generated route for
+/// [QrScannerView]
+class QrScannerRoute extends PageRouteInfo<void> {
+  const QrScannerRoute({List<PageRouteInfo>? children})
     : super(QrScannerRoute.name, initialChildren: children);
 
   static const String name = 'QrScannerRoute';
 
-  static _i8.PageInfo page = _i8.PageInfo(
+  static PageInfo page = PageInfo(
     name,
     builder: (data) {
-      return const _i6.QrScannerView();
+      return const QrScannerView();
     },
   );
 }
 
 /// generated route for
-/// [_i7.SetPinCodeView]
-class SetPinCodeRoute extends _i8.PageRouteInfo<void> {
-  const SetPinCodeRoute({List<_i8.PageRouteInfo>? children})
+/// [SecurityView]
+class SecurityRoute extends PageRouteInfo<void> {
+  const SecurityRoute({List<PageRouteInfo>? children})
+    : super(SecurityRoute.name, initialChildren: children);
+
+  static const String name = 'SecurityRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const SecurityView();
+    },
+  );
+}
+
+/// generated route for
+/// [SetPinCodeView]
+class SetPinCodeRoute extends PageRouteInfo<void> {
+  const SetPinCodeRoute({List<PageRouteInfo>? children})
     : super(SetPinCodeRoute.name, initialChildren: children);
 
   static const String name = 'SetPinCodeRoute';
 
-  static _i8.PageInfo page = _i8.PageInfo(
+  static PageInfo page = PageInfo(
     name,
     builder: (data) {
-      return const _i7.SetPinCodeView();
+      return const SetPinCodeView();
+    },
+  );
+}
+
+/// generated route for
+/// [UserInfoView]
+class UserInfoRoute extends PageRouteInfo<void> {
+  const UserInfoRoute({List<PageRouteInfo>? children})
+    : super(UserInfoRoute.name, initialChildren: children);
+
+  static const String name = 'UserInfoRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const UserInfoView();
+    },
+  );
+}
+
+/// generated route for
+/// [VerificationResultView]
+class VerificationResultRoute extends PageRouteInfo<void> {
+  const VerificationResultRoute({List<PageRouteInfo>? children})
+    : super(VerificationResultRoute.name, initialChildren: children);
+
+  static const String name = 'VerificationResultRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const VerificationResultView();
+    },
+  );
+}
+
+/// generated route for
+/// [VerificationStepOneView]
+class VerificationStepOneRoute extends PageRouteInfo<void> {
+  const VerificationStepOneRoute({List<PageRouteInfo>? children})
+    : super(VerificationStepOneRoute.name, initialChildren: children);
+
+  static const String name = 'VerificationStepOneRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const VerificationStepOneView();
+    },
+  );
+}
+
+/// generated route for
+/// [VerificationStepThreeView]
+class VerificationStepThreeRoute extends PageRouteInfo<void> {
+  const VerificationStepThreeRoute({List<PageRouteInfo>? children})
+    : super(VerificationStepThreeRoute.name, initialChildren: children);
+
+  static const String name = 'VerificationStepThreeRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const VerificationStepThreeView();
+    },
+  );
+}
+
+/// generated route for
+/// [VerificationStepTwoView]
+class VerificationStepTwoRoute extends PageRouteInfo<void> {
+  const VerificationStepTwoRoute({List<PageRouteInfo>? children})
+    : super(VerificationStepTwoRoute.name, initialChildren: children);
+
+  static const String name = 'VerificationStepTwoRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const VerificationStepTwoView();
     },
   );
 }

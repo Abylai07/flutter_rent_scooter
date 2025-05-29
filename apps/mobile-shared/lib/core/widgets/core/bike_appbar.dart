@@ -5,7 +5,13 @@ import 'package:flutter/material.dart';
 
 /// App Bar widget for whole project
 class BikeAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const BikeAppBar({super.key, this.subTitle, required this.title, this.actions});
+  const BikeAppBar({
+    super.key,
+    this.subTitle,
+    required this.title,
+    this.actions,
+    this.onPressed,
+  });
 
   /// Subtitle of the app bar
   final String? subTitle;
@@ -15,22 +21,25 @@ class BikeAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   final List<Widget>? actions;
 
+  final VoidCallback? onPressed;
+
   @override
-  Size get preferredSize => const Size.fromHeight(40);
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      leading: Navigator.canPop(context) ? IconButton(
+        onPressed: onPressed ?? () => Navigator.pop(context),
+        icon: Assets.icons.arrowBack.svg(
+            colorFilter: context.svgColor(
+          light: BikeColors.icon.light.black,
+          dark: BikeColors.icon.dark.white,
+        )),
+      ) : const SizedBox(),
       backgroundColor: context.theme.whenByValue(
         light: BikeColors.background.light.primary,
         dark: BikeColors.background.dark.primary,
-      ),
-      iconTheme: IconThemeData(
-        weight: 100,
-        color: context.theme.whenByValue(
-          light: BikeColors.icon.light.black,
-          dark: BikeColors.icon.dark.white,
-        ),
       ),
       title: Column(
         children: [

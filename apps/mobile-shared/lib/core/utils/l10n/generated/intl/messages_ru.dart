@@ -20,17 +20,46 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'ru';
 
-  static String m0(count) =>
-      "${Intl.plural(count, zero: 'У вас нет новых сообщений', one: 'У вас 1 новое сообщение', other: 'У вас ${count} новых сообщений')}";
+  static String m0(seconds) => "Отправить код через 00:${seconds}";
 
-  static String m1(seconds) => "Отправить код через 00:${seconds}";
+  static String m1(step) => "Шаг ${step} из 3";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "authorization": MessageLookupByLibrary.simpleMessage("Авторизация"),
+    "bank_cards": MessageLookupByLibrary.simpleMessage("Банковские карты"),
     "biometricPrompt": MessageLookupByLibrary.simpleMessage(
       "Отсканируйте отпечаток пальца (или лицо) для аутентификации",
     ),
+    "birth_date": MessageLookupByLibrary.simpleMessage("Дата рождения"),
+    "birth_place": MessageLookupByLibrary.simpleMessage("Место рождения"),
+    "book": MessageLookupByLibrary.simpleMessage("Забронировать"),
+    "booking_notice": MessageLookupByLibrary.simpleMessage(
+      "Бронирование будет активно в течении 10 минут, по истечении этого времени бронь отменяется",
+    ),
+    "cancel": MessageLookupByLibrary.simpleMessage("Отменить"),
+    "cancel_short": MessageLookupByLibrary.simpleMessage("Отмена"),
+    "changePasscode": MessageLookupByLibrary.simpleMessage(
+      "Сменить код доступа",
+    ),
+    "changePhoneNumber": MessageLookupByLibrary.simpleMessage(
+      "Сменить номер телефона",
+    ),
+    "check_personal_data": MessageLookupByLibrary.simpleMessage(
+      "Проверьте ваши личные данные",
+    ),
+    "confirmDelete": MessageLookupByLibrary.simpleMessage("Удалить"),
+    "confirm_identity": MessageLookupByLibrary.simpleMessage(
+      "Подтвердите вашу личность",
+    ),
+    "deleteAccount": MessageLookupByLibrary.simpleMessage("Удалить аккаунт"),
+    "deleteAccountConfirmation": MessageLookupByLibrary.simpleMessage(
+      "Вы действительно хотите удалить аккаунт? Данные аккаунта удалятся безвозвратно.",
+    ),
+    "do_not_close": MessageLookupByLibrary.simpleMessage(
+      "Не закрывайте приложение и не блокируйте экран.\nСкорость проверки данных зависит от качества интернет связи",
+    ),
+    "document_number": MessageLookupByLibrary.simpleMessage("Номер документа"),
     "enableFaceId": MessageLookupByLibrary.simpleMessage(
       "Разрешить использовать Face ID для быстрого входа в приложение?",
     ),
@@ -40,25 +69,67 @@ class MessageLookup extends MessageLookupByLibrary {
     "enterPasscode": MessageLookupByLibrary.simpleMessage(
       "Придумайте код доступа",
     ),
+    "enter_bike_number": MessageLookupByLibrary.simpleMessage(
+      "Введите номер велосипеда",
+    ),
     "enter_code_from_sms": MessageLookupByLibrary.simpleMessage(
       "Введите код из SMS",
+    ),
+    "enter_data": MessageLookupByLibrary.simpleMessage("Введите данные"),
+    "enter_number_manually": MessageLookupByLibrary.simpleMessage(
+      "Ввести номер вручную",
     ),
     "enter_phone_number": MessageLookupByLibrary.simpleMessage(
       "Введите номер телефона",
     ),
     "error": MessageLookupByLibrary.simpleMessage("Произошла ошибка"),
+    "faceIdLogin": MessageLookupByLibrary.simpleMessage("Вход по Face ID"),
+    "face_control_failed": MessageLookupByLibrary.simpleMessage(
+      "Face контроль не пройден. Пожалуйста, повторите попытку",
+    ),
+    "face_control_instruction": MessageLookupByLibrary.simpleMessage(
+      "Пройдите face контроль \nдля успешного завершения верификации",
+    ),
+    "fines": MessageLookupByLibrary.simpleMessage("Штрафы"),
     "forgotPasscode": MessageLookupByLibrary.simpleMessage(
       "Забыли код доступа?",
     ),
+    "full_name": MessageLookupByLibrary.simpleMessage("ФИО"),
     "get_code": MessageLookupByLibrary.simpleMessage("Получить код"),
+    "history": MessageLookupByLibrary.simpleMessage("История"),
+    "how_to_rent": MessageLookupByLibrary.simpleMessage("Как взять в аренду"),
+    "iin": MessageLookupByLibrary.simpleMessage("ИИН"),
     "incorrect_code": MessageLookupByLibrary.simpleMessage("Неверный код"),
     "incorrect_phone": MessageLookupByLibrary.simpleMessage("Неверный номер"),
     "inputPasscode": MessageLookupByLibrary.simpleMessage(
       "Введите код доступа",
     ),
+    "inspect_transport": MessageLookupByLibrary.simpleMessage(
+      "Осмотрите транспорт на предмет заметных внешних повреждений. Если обнаружите что-то, лучше взять другой транспорт",
+    ),
+    "instructions": MessageLookupByLibrary.simpleMessage(
+      "В Kaspi.kz или eGov, перейдите в раздел \'Цифровые документы\', выберите \'Удостоверение личности\', затем нажмите \'Предъявить документ\' или \'Открыть доступ\'",
+    ),
+    "insurance": MessageLookupByLibrary.simpleMessage("Страховка"),
+    "issue_expiry_date": MessageLookupByLibrary.simpleMessage(
+      "Дата выдачи - срок действия",
+    ),
+    "issuing_authority": MessageLookupByLibrary.simpleMessage("Орган выдачи"),
     "language": MessageLookupByLibrary.simpleMessage("Русский"),
+    "languageTitle": MessageLookupByLibrary.simpleMessage("Язык"),
+    "logout": MessageLookupByLibrary.simpleMessage("Выйти"),
+    "logout_confirmation": MessageLookupByLibrary.simpleMessage(
+      "Вы действительно хотите выйти из аккаунта?",
+    ),
+    "my_transport": MessageLookupByLibrary.simpleMessage("Мой транспорт"),
+    "nationality": MessageLookupByLibrary.simpleMessage("Национальность"),
     "next": MessageLookupByLibrary.simpleMessage("Далее"),
     "no": MessageLookupByLibrary.simpleMessage("Нет"),
+    "no_objects_background": MessageLookupByLibrary.simpleMessage(
+      "На фоне не должно быть других людей и предметов закрывающих ваше лицо",
+    ),
+    "not_resident": MessageLookupByLibrary.simpleMessage("Я не резидент РК"),
+    "number": MessageLookupByLibrary.simpleMessage("Номер"),
     "onboadring_0_description_0": MessageLookupByLibrary.simpleMessage(
       "Быстрый, удобный и экологичный способ передвижения!",
     ),
@@ -116,20 +187,63 @@ class MessageLookup extends MessageLookupByLibrary {
     "onboadring_3_title": MessageLookupByLibrary.simpleMessage(
       "Завершение аренды и штрафы",
     ),
-    "pageHomeInboxCount": m0,
+    "passcodeLogin": MessageLookupByLibrary.simpleMessage(
+      "Вход по коду доступа",
+    ),
+    "personalInfo": MessageLookupByLibrary.simpleMessage("Личная информация"),
     "phone_number": MessageLookupByLibrary.simpleMessage("Номер телефона"),
+    "photo_quality_requirement": MessageLookupByLibrary.simpleMessage(
+      "Фотография должна быть четкой, не размытой, без солнечных бликов",
+    ),
+    "profile": MessageLookupByLibrary.simpleMessage("Профиль"),
     "rememberedCode": MessageLookupByLibrary.simpleMessage("Вспомнил код"),
     "repeatPasscode": MessageLookupByLibrary.simpleMessage(
       "Повторите код доступа",
     ),
-    "resend_code_in": m1,
+    "resend_code_in": m0,
+    "retake": MessageLookupByLibrary.simpleMessage("Переснять"),
+    "retry_verification": MessageLookupByLibrary.simpleMessage(
+      "Пожалуйста, повторите попытку. Убедитесь, что данные правильно внесены",
+    ),
+    "save": MessageLookupByLibrary.simpleMessage("Сохранить"),
+    "scan_or_upload": MessageLookupByLibrary.simpleMessage(
+      "Отсканируйте/добавьте паспорт",
+    ),
+    "security": MessageLookupByLibrary.simpleMessage("Безопасность"),
     "setPasscode": MessageLookupByLibrary.simpleMessage(
       "Установить код доступа",
     ),
     "setPasscodeTitle": MessageLookupByLibrary.simpleMessage(
       "Для использования Face ID/Touch ID необходимо установить код доступа. Желаете установить?",
     ),
+    "six_digit_code": MessageLookupByLibrary.simpleMessage(
+      "Шестизначный код документа",
+    ),
     "start_ride": MessageLookupByLibrary.simpleMessage("Начать поездку"),
+    "start_verification": MessageLookupByLibrary.simpleMessage("Пройти"),
+    "step_num_of_3": m1,
+    "support": MessageLookupByLibrary.simpleMessage("Поддержка"),
+    "take_photo": MessageLookupByLibrary.simpleMessage("Сделать фото"),
+    "touchIdLogin": MessageLookupByLibrary.simpleMessage("Вход по Touch ID"),
+    "training": MessageLookupByLibrary.simpleMessage("Обучение"),
+    "try_again": MessageLookupByLibrary.simpleMessage("Пройти заново"),
+    "upload_from_phone": MessageLookupByLibrary.simpleMessage(
+      "Загрузить с телефона",
+    ),
+    "upload_passport": MessageLookupByLibrary.simpleMessage(
+      "Загрузите страницу паспорта",
+    ),
+    "verification": MessageLookupByLibrary.simpleMessage("Верификация"),
+    "verification_failed": MessageLookupByLibrary.simpleMessage(
+      "Верификация не пройдена",
+    ),
+    "verification_in_progress": MessageLookupByLibrary.simpleMessage(
+      "Идет проверка, подождите",
+    ),
+    "verification_success": MessageLookupByLibrary.simpleMessage(
+      "Верификация пройдена успешно",
+    ),
+    "wallet": MessageLookupByLibrary.simpleMessage("Кошелек"),
     "yes": MessageLookupByLibrary.simpleMessage("Да"),
   };
 }

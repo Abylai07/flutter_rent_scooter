@@ -1,5 +1,4 @@
-import 'package:almabike_app/src/core/utils/app_storage.dart';
-import 'package:almabike_app/src/core/utils/navigation/route_config.gr.dart';
+import 'package:almabike_app/src/core/utils/navigation/route_config.dart';
 import 'package:almabike_app/src/core/utils/services/locale_auth_service.dart';
 import 'package:almabike_app/src/features/pin_code/widgets/show_biometric_alert.dart';
 import 'package:almabike_shared/almabike_shared.dart';
@@ -8,9 +7,10 @@ import 'package:almabike_shared/gen/assets.gen.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:local_auth/local_auth.dart';
 
-import 'bloc/pin_code_bloc.dart';
+import 'bloc/pin_code/pin_code_bloc.dart';
 
 @RoutePage()
 class SetPinCodeView extends StatelessWidget {
@@ -48,17 +48,14 @@ class _SetPinCodeViewContent extends StatelessWidget {
             padding: const EdgeInsets.all(16.0),
             child: Column(
               children: [
-                const SizedBox(height: 80),
-
-                // Title text - changes based on current step
+                SizedBox(height: 64.h),
                 Text(
                   state.currentStep == PinEntryStep.initial
                       ? Localization.of(context).enterPasscode
                       : Localization.of(context).repeatPasscode,
                   style: BikeTypography.headline.large,
                 ),
-
-                const SizedBox(height: 54),
+                SizedBox(height: 54.h),
 
                 // PIN code dots
                 _buildPinDots(context, state),
@@ -137,7 +134,7 @@ class _SetPinCodeViewContent extends StatelessWidget {
           _buildKeypadRow(['7', '8', '9'], context),
           const SizedBox(height: 28),
           _buildKeypadRow(['face_id', '0', 'delete'], context),
-          const SizedBox(height: 86),
+          SafeArea(child: SizedBox(height: 56.h)),
         ],
       ),
     );
@@ -191,19 +188,19 @@ class _SetPinCodeViewContent extends StatelessWidget {
           : Localization.of(context).enableTouchId,
       icon: hasFaceId ? Assets.icons.faceId : Assets.icons.touchId,
       onConfirm: () async {
-          context.router.replaceAll([const PinCodeRoute()]);
-
-        // final authed = await LocalAuthService.authenticateWithBiometrics(
-        //   Localization.of(context).biometricPrompt,
-        // );
-        // if (authed) {
-        //   AppStorage.authByBiometrics = true;
-        //   LocalAuthService.writeCode(firstPin);
-        //
-        //   context.router.replaceAll([PinCodeRoute()]);
-        // } else {
-        //   showErrorSnackBar(context, Localization.of(context).error);
-        // }
+        final authed = await LocalAuthService.authenticateWithBiometrics(
+          Localization.of(context).biometricPrompt,
+        );
+        if (authed) {
+          AppStorage.authByBiometrics = true;
+          LocalAuthService.writeCode(firstPin);
+          if (context.mounted) {
+            Navigator.of(context).pop();
+            context.router.replaceAll([const PinCodeRoute()]);
+          }
+        } else {
+          showErrorSnackBar(context, Localization.of(context).error);
+        }
       },
       onCancel: () {
         context.router.maybePop();

@@ -29,9 +29,10 @@ dependencies:
   flutter_map: ^8.0.0
   flutter_svg: ^2.0.17
   vector_graphics: ^1.1.18
+  get_storage: ^2.1.1
 
   #Map
-  dgis_mobile_sdk_full: ^12.6.3
+  dgis_mobile_sdk_map: ^12.6.3
   permission_handler: ^12.0.0+1
 
   # utils
@@ -49,8 +50,6 @@ dependencies:
   mask_text_input_formatter: ^2.9.0
   pinput: ^5.0.1
 
-  # navigation
-  auto_route: ^9.3.0+1
 
 dev_dependencies:
   flutter_test:
@@ -69,6 +68,7 @@ flutter:
   assets:
     - assets/logos/
     - assets/icons/
+    - assets/icons/profile/
     - assets/images/markers/
     - assets/images/media/
   fonts:

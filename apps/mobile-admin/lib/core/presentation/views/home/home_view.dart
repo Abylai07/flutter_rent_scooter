@@ -1,6 +1,6 @@
 import 'package:almabike_shared/almabike_shared.dart';
 import 'package:almabike_shared/core/style/tokens/bike_border_radiuses.dart';
-import 'package:almabike_shared/core/utils/networking/https/models/device_model.dart';
+import 'package:almabike_shared/core/utils/networking/https/models/device/device_model.dart';
 import 'package:almabike_shared/core/utils/networking/https/rest_client.dart';
 import 'package:almabike_shared/core/widgets/core/bike_button.dart';
 import 'package:almabike_shared/core/widgets/core/bike_container.dart';
@@ -10,6 +10,7 @@ import 'package:almabike_shared/core/widgets/core/map/map_widget.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
 
 class BikeModal extends StatelessWidget {
   const BikeModal({super.key, required this.item});
@@ -136,7 +137,7 @@ class BikeModal extends StatelessWidget {
           BikeButton(
             title: 'Разблокировать батарею',
             onPressed: () async {
-              final result = await RestClient().app.unlockBattery(item.id);
+              final result = await RestClient().device.unlockBattery(item.id);
               showSnackBar(
                 context,
                 name: result['deviceId'].toString(),

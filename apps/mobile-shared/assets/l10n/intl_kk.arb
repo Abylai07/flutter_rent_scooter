@@ -1,6 +1,6 @@
 {
   "@@locale": "kk",
-  "language": "Қазақ тілі",
+  "language": "Қазақша",
   "@language": {
     "description": "Тіл аты"
   },
@@ -25,15 +25,6 @@
     "description": "Кодты қайта жіберуге дейінгі уақыт",
     "placeholders": {
       "seconds": {
-        "type": "int"
-      }
-    }
-  },
-  "pageHomeInboxCount": "{count, plural, zero{Жаңа хабарламалар жоқ} one{1 жаңа хабарламаңыз бар} other{{count} жаңа хабарламаңыз бар}}",
-  "@pageHomeInboxCount": {
-    "description": "Басты беттегі жаңа хабарламалар саны",
-    "placeholders": {
-      "count": {
         "type": "int"
       }
     }
@@ -96,5 +87,78 @@
   "rememberedCode": "Құпия код есіме түсті",
   "forgotPasscode": "Құпия кодты ұмыттыңыз ба?",
   "biometricPrompt": "Аутентификация үшін саусақ ізіңізді (немесе бетіңізді) сканерлеңіз",
-  "error": "Қате пайда болды"
+  "error": "Қате пайда болды",
+  "profile": "Профиль",
+  "enter_number_manually": "Нөмірді қолмен енгізу",
+  "enter_bike_number": "Велосипед нөмірін енгізіңіз",
+  "number": "Нөмір",
+  "booking_notice": "Бронь 10 минутқа дейін белсенді болады, осы уақыт өткеннен кейін ол жойылады",
+  "cancel": "Бас тарту",
+  "book": "Брондау",
+  "inspect_transport": "Көлікті көрнекті сыртқы зақымдар үшін тексеріңіз. Егер ақау тапсаңыз, басқа көлікті таңдаған дұрыс",
+  "wallet": "Әмиян",
+  "my_transport": "Менің көлігім",
+  "history": "Тарих",
+  "fines": "Айыппұлдар",
+  "security": "Қауіпсіздік",
+  "bank_cards": "Банк карталары",
+  "insurance": "Сақтандыру",
+  "how_to_rent": "Қалай жалға алуға болады",
+  "training": "Оқу",
+  "languageTitle": "Тіл",
+  "support": "Қолдау",
+  "logout": "Шығу",
+  "logout_confirmation": "Шынымен шығуды қалайсыз ба?",
+  "cancel_short": "Бас тарту",
+
+
+  "verification": "Тексеру",
+  "step_num_of_3": "{step}-қадам 3-тен",
+  "@step_num_of_3": {
+    "placeholders": {
+      "step": {
+        "type": "int"
+      }
+    }
+  },
+  "enter_data": "Мәліметтерді енгізіңіз",
+  "not_resident": "Мен ҚР резиденті емеспін",
+  "six_digit_code": "Құжаттың алты таңбалы коды",
+  "instructions": "Kaspi.kz немесе eGov қосымшасында 'Цифрлық құжаттар' бөліміне өтіп, 'Жеке куәлік'-ті таңдаңыз, сосын 'Құжатты көрсету' немесе 'Қолжетімділікті ашу' батырмасын басыңыз",
+  "check_personal_data": "Жеке деректеріңізді тексеріңіз",
+  "full_name": "Аты-жөні",
+  "iin": "ЖСН",
+  "document_number": "Құжат нөмірі",
+  "birth_date": "Туған күні",
+  "birth_place": "Туған жері",
+  "nationality": "Ұлты",
+  "issuing_authority": "Құжатты берген орган",
+  "issue_expiry_date": "Берілген күні - Жарамдылық мерзімі",
+  "confirm_identity": "Жеке басыңызды растаңыз",
+  "face_control_instruction": "Тексеруді аяқтау үшін \nбетіңізді сәйкестендіріңіз",
+  "no_objects_background": "Артқы жағында басқа адамдар мен бетіңізді жабатын заттар болмауы керек",
+  "start_verification": "Бастау",
+  "verification_in_progress": "Тексеру жүріп жатыр, күтіңіз",
+  "do_not_close": "Қосымшаны жаппаңыз және экранды бұғаттамаңыз.\nТексеру жылдамдығы интернет сапасына байланысты",
+  "verification_success": "Тексеру сәтті аяқталды",
+  "verification_failed": "Тексеру сәтсіз аяқталды",
+  "retry_verification": "Қайталап көріңіз. Мәліметтердің дұрыс енгізілгеніне көз жеткізіңіз",
+  "try_again": "Қайта өту",
+  "face_control_failed": "Face сәйкестендіру сәтсіз өтті. Қайталап көріңіз",
+  "upload_passport": "Паспорт бетін жүктеңіз",
+  "scan_or_upload": "Паспортты сканерлеңіз/жүктеңіз",
+  "take_photo": "Фото түсіру",
+  "upload_from_phone": "Телефоннан жүктеу",
+  "photo_quality_requirement": "Фото анық, бұлдыр емес және күн сәулесі түсіп тұрмауы тиіс",
+  "retake": "Қайта түсіру",
+  "faceIdLogin": "Face ID арқылы кіру",
+  "touchIdLogin": "Touch ID арқылы кіру",
+  "passcodeLogin": "Құпия код арқылы кіру",
+  "changePasscode": "Құпия кодты өзгерту",
+  "changePhoneNumber": "Телефон нөмірін өзгерту",
+  "personalInfo": "Жеке ақпарат",
+  "save": "Сақтау",
+  "deleteAccount": "Аккаунтты өшіру",
+  "deleteAccountConfirmation": "Аккаунтыңызды өшіргіңіз келетініне сенімдісіз бе? Барлық деректер қайтымсыз жойылады.",
+  "confirmDelete": "Өшіру"
 }

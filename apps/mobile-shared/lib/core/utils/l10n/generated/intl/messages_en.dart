@@ -20,17 +20,44 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en';
 
-  static String m0(count) =>
-      "${Intl.plural(count, zero: 'You have no new messages', one: 'You have 1 new message', other: 'You have ${count} new messages')}";
+  static String m0(seconds) => "Resend code in 00:${seconds}";
 
-  static String m1(seconds) => "Resend code in 00:${seconds}";
+  static String m1(step) => "Step ${step} of 3";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "authorization": MessageLookupByLibrary.simpleMessage("Authorization"),
+    "bank_cards": MessageLookupByLibrary.simpleMessage("Bank cards"),
     "biometricPrompt": MessageLookupByLibrary.simpleMessage(
       "Scan your fingerprint (or face) for authentication",
     ),
+    "birth_date": MessageLookupByLibrary.simpleMessage("Date of birth"),
+    "birth_place": MessageLookupByLibrary.simpleMessage("Place of birth"),
+    "book": MessageLookupByLibrary.simpleMessage("Book"),
+    "booking_notice": MessageLookupByLibrary.simpleMessage(
+      "Booking will be active for 10 minutes, after which it will be cancelled",
+    ),
+    "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
+    "cancel_short": MessageLookupByLibrary.simpleMessage("Cancel"),
+    "changePasscode": MessageLookupByLibrary.simpleMessage("Change passcode"),
+    "changePhoneNumber": MessageLookupByLibrary.simpleMessage(
+      "Change phone number",
+    ),
+    "check_personal_data": MessageLookupByLibrary.simpleMessage(
+      "Check your personal data",
+    ),
+    "confirmDelete": MessageLookupByLibrary.simpleMessage("Delete"),
+    "confirm_identity": MessageLookupByLibrary.simpleMessage(
+      "Confirm your identity",
+    ),
+    "deleteAccount": MessageLookupByLibrary.simpleMessage("Delete account"),
+    "deleteAccountConfirmation": MessageLookupByLibrary.simpleMessage(
+      "Are you sure you want to delete your account? Account data will be permanently deleted.",
+    ),
+    "do_not_close": MessageLookupByLibrary.simpleMessage(
+      "Do not close the app or lock the screen.\nVerification speed depends on internet quality",
+    ),
+    "document_number": MessageLookupByLibrary.simpleMessage("Document number"),
     "enableFaceId": MessageLookupByLibrary.simpleMessage(
       "Allow using Face ID for quick login?",
     ),
@@ -38,21 +65,67 @@ class MessageLookup extends MessageLookupByLibrary {
       "Allow using Touch ID for quick login?",
     ),
     "enterPasscode": MessageLookupByLibrary.simpleMessage("Create a passcode"),
+    "enter_bike_number": MessageLookupByLibrary.simpleMessage(
+      "Enter bike number",
+    ),
     "enter_code_from_sms": MessageLookupByLibrary.simpleMessage(
       "Enter the code from SMS",
+    ),
+    "enter_data": MessageLookupByLibrary.simpleMessage("Enter data"),
+    "enter_number_manually": MessageLookupByLibrary.simpleMessage(
+      "Enter number manually",
     ),
     "enter_phone_number": MessageLookupByLibrary.simpleMessage(
       "Enter your phone number",
     ),
     "error": MessageLookupByLibrary.simpleMessage("An error occurred"),
+    "faceIdLogin": MessageLookupByLibrary.simpleMessage("Login with Face ID"),
+    "face_control_failed": MessageLookupByLibrary.simpleMessage(
+      "Face control failed. Please try again",
+    ),
+    "face_control_instruction": MessageLookupByLibrary.simpleMessage(
+      "Pass face control\nto complete verification",
+    ),
+    "fines": MessageLookupByLibrary.simpleMessage("Fines"),
     "forgotPasscode": MessageLookupByLibrary.simpleMessage("Forgot passcode?"),
+    "full_name": MessageLookupByLibrary.simpleMessage("Full name"),
     "get_code": MessageLookupByLibrary.simpleMessage("Get code"),
+    "history": MessageLookupByLibrary.simpleMessage("History"),
+    "how_to_rent": MessageLookupByLibrary.simpleMessage("How to rent"),
+    "iin": MessageLookupByLibrary.simpleMessage("IIN"),
     "incorrect_code": MessageLookupByLibrary.simpleMessage("Incorrect code"),
     "incorrect_phone": MessageLookupByLibrary.simpleMessage("Incorrect number"),
     "inputPasscode": MessageLookupByLibrary.simpleMessage("Enter passcode"),
+    "inspect_transport": MessageLookupByLibrary.simpleMessage(
+      "Inspect the transport for visible external damage. If you find anything, it\'s better to choose another vehicle",
+    ),
+    "instructions": MessageLookupByLibrary.simpleMessage(
+      "In Kaspi.kz or eGov, go to \'Digital Documents\', select \'Identity Card\', then tap \'Show Document\' or \'Grant Access\'",
+    ),
+    "insurance": MessageLookupByLibrary.simpleMessage("Insurance"),
+    "issue_expiry_date": MessageLookupByLibrary.simpleMessage(
+      "Issue date - Expiry date",
+    ),
+    "issuing_authority": MessageLookupByLibrary.simpleMessage(
+      "Issuing authority",
+    ),
     "language": MessageLookupByLibrary.simpleMessage("English"),
+    "languageTitle": MessageLookupByLibrary.simpleMessage("Language"),
+    "logout": MessageLookupByLibrary.simpleMessage("Logout"),
+    "logout_confirmation": MessageLookupByLibrary.simpleMessage(
+      "Are you sure you want to log out?",
+    ),
+    "my_transport": MessageLookupByLibrary.simpleMessage("My transport"),
+    "nationality": MessageLookupByLibrary.simpleMessage("Nationality"),
     "next": MessageLookupByLibrary.simpleMessage("Next"),
     "no": MessageLookupByLibrary.simpleMessage("No"),
+    "no_objects_background": MessageLookupByLibrary.simpleMessage(
+      "Make sure no people or objects block your face in the background",
+    ),
+    "not_resident": MessageLookupByLibrary.simpleMessage(
+      "I am not a resident of Kazakhstan",
+    ),
+    "number": MessageLookupByLibrary.simpleMessage("Number"),
     "onboadring_0_description_0": MessageLookupByLibrary.simpleMessage(
       "A fast, convenient and eco-friendly way to get around!",
     ),
@@ -110,20 +183,65 @@ class MessageLookup extends MessageLookupByLibrary {
     "onboadring_3_title": MessageLookupByLibrary.simpleMessage(
       "Ending the ride and penalties",
     ),
-    "pageHomeInboxCount": m0,
+    "passcodeLogin": MessageLookupByLibrary.simpleMessage(
+      "Login with passcode",
+    ),
+    "personalInfo": MessageLookupByLibrary.simpleMessage(
+      "Personal information",
+    ),
     "phone_number": MessageLookupByLibrary.simpleMessage("Phone number"),
+    "photo_quality_requirement": MessageLookupByLibrary.simpleMessage(
+      "The photo must be clear, not blurry, and without sunlight glare",
+    ),
+    "profile": MessageLookupByLibrary.simpleMessage("Profile"),
     "rememberedCode": MessageLookupByLibrary.simpleMessage(
       "I remembered the code",
     ),
     "repeatPasscode": MessageLookupByLibrary.simpleMessage(
       "Repeat the passcode",
     ),
-    "resend_code_in": m1,
+    "resend_code_in": m0,
+    "retake": MessageLookupByLibrary.simpleMessage("Retake"),
+    "retry_verification": MessageLookupByLibrary.simpleMessage(
+      "Please try again. Make sure the data is correct",
+    ),
+    "save": MessageLookupByLibrary.simpleMessage("Save"),
+    "scan_or_upload": MessageLookupByLibrary.simpleMessage(
+      "Scan or upload passport",
+    ),
+    "security": MessageLookupByLibrary.simpleMessage("Security"),
     "setPasscode": MessageLookupByLibrary.simpleMessage("Set Passcode"),
     "setPasscodeTitle": MessageLookupByLibrary.simpleMessage(
       "To use Face ID/Touch ID, you need to set a passcode. Would you like to set one?",
     ),
+    "six_digit_code": MessageLookupByLibrary.simpleMessage(
+      "Six-digit document code",
+    ),
     "start_ride": MessageLookupByLibrary.simpleMessage("Start ride"),
+    "start_verification": MessageLookupByLibrary.simpleMessage("Proceed"),
+    "step_num_of_3": m1,
+    "support": MessageLookupByLibrary.simpleMessage("Support"),
+    "take_photo": MessageLookupByLibrary.simpleMessage("Take photo"),
+    "touchIdLogin": MessageLookupByLibrary.simpleMessage("Login with Touch ID"),
+    "training": MessageLookupByLibrary.simpleMessage("Training"),
+    "try_again": MessageLookupByLibrary.simpleMessage("Try again"),
+    "upload_from_phone": MessageLookupByLibrary.simpleMessage(
+      "Upload from phone",
+    ),
+    "upload_passport": MessageLookupByLibrary.simpleMessage(
+      "Upload passport page",
+    ),
+    "verification": MessageLookupByLibrary.simpleMessage("Verification"),
+    "verification_failed": MessageLookupByLibrary.simpleMessage(
+      "Verification failed",
+    ),
+    "verification_in_progress": MessageLookupByLibrary.simpleMessage(
+      "Verification in progress, please wait",
+    ),
+    "verification_success": MessageLookupByLibrary.simpleMessage(
+      "Verification completed successfully",
+    ),
+    "wallet": MessageLookupByLibrary.simpleMessage("Wallet"),
     "yes": MessageLookupByLibrary.simpleMessage("Yes"),
   };
 }

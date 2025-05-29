@@ -29,15 +29,6 @@
       }
     }
   },
-  "pageHomeInboxCount": "{count, plural, zero{У вас нет новых сообщений} one{У вас 1 новое сообщение} other{У вас {count} новых сообщений}}",
-  "@pageHomeInboxCount": {
-    "description": "Количество новых сообщений на главном экране",
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
   "onboadring_0_title": "Добро пожаловать в Almaty Bike",
   "@onboadring_0_title": {},
   "onboadring_0_description_0": "Быстрый, удобный и экологичный способ передвижения!",
@@ -96,5 +87,78 @@
   "rememberedCode": "Вспомнил код",
   "forgotPasscode": "Забыли код доступа?",
   "biometricPrompt": "Отсканируйте отпечаток пальца (или лицо) для аутентификации",
-  "error": "Произошла ошибка"
+  "error": "Произошла ошибка",
+  "profile": "Профиль",
+  "enter_number_manually": "Ввести номер вручную",
+  "enter_bike_number": "Введите номер велосипеда",
+  "number": "Номер",
+  "booking_notice": "Бронирование будет активно в течении 10 минут, по истечении этого времени бронь отменяется",
+  "cancel": "Отменить",
+  "book": "Забронировать",
+  "inspect_transport": "Осмотрите транспорт на предмет заметных внешних повреждений. Если обнаружите что-то, лучше взять другой транспорт",
+  "wallet": "Кошелек",
+  "my_transport": "Мой транспорт",
+  "history": "История",
+  "fines": "Штрафы",
+  "security": "Безопасность",
+  "bank_cards": "Банковские карты",
+  "insurance": "Страховка",
+  "how_to_rent": "Как взять в аренду",
+  "training": "Обучение",
+  "languageTitle": "Язык",
+  "support": "Поддержка",
+  "logout": "Выйти",
+  "logout_confirmation": "Вы действительно хотите выйти из аккаунта?",
+  "cancel_short": "Отмена",
+
+
+  "verification": "Верификация",
+  "step_num_of_3": "Шаг {step} из 3",
+  "@step_num_of_3": {
+    "placeholders": {
+      "step": {
+        "type": "int"
+      }
+    }
+  },
+  "enter_data": "Введите данные",
+  "not_resident": "Я не резидент РК",
+  "six_digit_code": "Шестизначный код документа",
+  "instructions": "В Kaspi.kz или eGov, перейдите в раздел 'Цифровые документы', выберите 'Удостоверение личности', затем нажмите 'Предъявить документ' или 'Открыть доступ'",
+  "check_personal_data": "Проверьте ваши личные данные",
+  "full_name": "ФИО",
+  "iin": "ИИН",
+  "document_number": "Номер документа",
+  "birth_date": "Дата рождения",
+  "birth_place": "Место рождения",
+  "nationality": "Национальность",
+  "issuing_authority": "Орган выдачи",
+  "issue_expiry_date": "Дата выдачи - срок действия",
+  "confirm_identity": "Подтвердите вашу личность",
+  "face_control_instruction": "Пройдите face контроль \nдля успешного завершения верификации",
+  "no_objects_background": "На фоне не должно быть других людей и предметов закрывающих ваше лицо",
+  "start_verification": "Пройти",
+  "verification_in_progress": "Идет проверка, подождите",
+  "do_not_close": "Не закрывайте приложение и не блокируйте экран.\nСкорость проверки данных зависит от качества интернет связи",
+  "verification_success": "Верификация пройдена успешно",
+  "verification_failed": "Верификация не пройдена",
+  "retry_verification": "Пожалуйста, повторите попытку. Убедитесь, что данные правильно внесены",
+  "try_again": "Пройти заново",
+  "face_control_failed": "Face контроль не пройден. Пожалуйста, повторите попытку",
+  "upload_passport": "Загрузите страницу паспорта",
+  "scan_or_upload": "Отсканируйте/добавьте паспорт",
+  "take_photo": "Сделать фото",
+  "upload_from_phone": "Загрузить с телефона",
+  "photo_quality_requirement": "Фотография должна быть четкой, не размытой, без солнечных бликов",
+  "retake": "Переснять",
+  "faceIdLogin": "Вход по Face ID",
+  "touchIdLogin": "Вход по Touch ID",
+  "passcodeLogin": "Вход по коду доступа",
+  "changePasscode": "Сменить код доступа",
+  "changePhoneNumber": "Сменить номер телефона",
+  "personalInfo": "Личная информация",
+  "save": "Сохранить",
+  "deleteAccount": "Удалить аккаунт",
+  "deleteAccountConfirmation": "Вы действительно хотите удалить аккаунт? Данные аккаунта удалятся безвозвратно.",
+  "confirmDelete": "Удалить"
 }

@@ -23,6 +23,7 @@ class BikeApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return BikeProviders(
       child: Consumer<LocalizationUtil>(
         builder: (context, localization, _) {

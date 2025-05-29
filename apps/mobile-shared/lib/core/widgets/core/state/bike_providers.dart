@@ -1,6 +1,4 @@
-import 'package:almabike_shared/core/style/theme/theme_util.dart';
-import 'package:almabike_shared/core/utils/l10n/utils/l10n_util.dart';
-import 'package:almabike_shared/core/utils/networking/https/clients/i_rest_client.dart';
+import 'package:almabike_shared/almabike_shared.dart';
 import 'package:almabike_shared/core/utils/networking/https/rest_client.dart';
 import 'package:almabike_shared/core/widgets/core/map/bloc/map_bloc.dart';
 import 'package:flutter/material.dart';
@@ -18,14 +16,18 @@ class BikeProviders extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (context) => ThemeUtil.instance),
         ChangeNotifierProvider(create: (context) => LocalizationUtil.instance),
-        RepositoryProvider<IRestClient>(
-          create: (BuildContext context) => RestClient().app,
+        RepositoryProvider<DeviceRestClient>(
+          create: (BuildContext context) => RestClient().device,
+        ),
+        RepositoryProvider<AuthRestClient>(
+          create: (BuildContext context) => RestClient().auth,
         ),
         BlocProvider<MapBloc>(
           create: (BuildContext context) => MapBloc(
-            restClient: RestClient().app,
+            restClient: RestClient().device,
           ),
         ),
+
       ],
       child: child,
     );

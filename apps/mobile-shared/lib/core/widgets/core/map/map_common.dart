@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:dgis_mobile_sdk_full/dgis.dart' as sdk;
+import 'package:dgis_mobile_sdk_map/dgis.dart' as sdk;
 import 'package:permission_handler/permission_handler.dart';
 
 Future<void> checkLocationPermissions(
@@ -41,6 +41,7 @@ class AppContainer {
         systemLevel: sdk.LogLevel.verbose,
         customLevel: sdk.LogLevel.verbose,
       ),
+
     );
     return _sdkContext!;
   }

@@ -1,4 +1,4 @@
-import 'package:almabike_shared/core/utils/networking/https/clients/i_rest_client.dart';
+import 'package:almabike_shared/almabike_shared.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -11,11 +11,16 @@ class AuthBloc extends Bloc<AuthBlocEvent, AuthBlocState> {
     on<AuthBlocEvent>((event, emit) async {
       await event.when(
         auth: (phone) async {
-          final validPhoneLenght = 10;
-          final isValidPhone = phone.length == validPhoneLenght;
-          if (isValidPhone) {
-            emit(AuthBlocState.success(phone: phone));
-          } else {
+          try {
+            final validPhoneLength = 10;
+            final isValidPhone = phone.length == validPhoneLength;
+            await restClient.requestPin('+7$phone');
+            if (isValidPhone) {
+              emit(AuthBlocState.success(phone: phone));
+            } else {
+              emit(const AuthBlocState.error());
+            }
+          } catch (e) {
             emit(const AuthBlocState.error());
           }
         },
@@ -23,5 +28,5 @@ class AuthBloc extends Bloc<AuthBlocEvent, AuthBlocState> {
     });
   }
 
-  final IRestClient restClient;
+  final AuthRestClient restClient;
 }

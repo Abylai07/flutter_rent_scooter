@@ -27,7 +27,8 @@ extension ThemeDataX on ThemeData {
     }
   }
 
-  T maybeWhenByValue<T extends Object?>({
+
+T maybeWhenByValue<T extends Object?>({
     required T orElse,
     T? light,
     T? dark,

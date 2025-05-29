@@ -1,17 +1,13 @@
-import 'package:almabike_app/src/core/utils/navigation/route_config.gr.dart';
+import 'package:almabike_app/src/core/utils/navigation/route_config.dart';
 import 'package:almabike_app/src/features/auth_verification/bloc/auth_verification_bloc.dart';
-import 'package:almabike_shared/core/utils/l10n/l10n.dart';
-import 'package:almabike_shared/core/utils/networking/https/clients/i_rest_client.dart';
-import 'package:almabike_shared/core/widgets/core/bike_appbar.dart';
+import 'package:almabike_shared/almabike_shared.dart';
 import 'package:almabike_shared/core/widgets/core/bike_button.dart';
-import 'package:almabike_shared/core/widgets/core/bike_scaffold.dart';
 import 'package:almabike_shared/core/widgets/core/pincode_widget.dart';
 import 'package:almabike_shared/gen/assets.gen.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../core/utils/app_storage.dart';
 import '../../core/utils/services/locale_auth_service.dart';
 import '../pin_code/widgets/show_biometric_alert.dart';
 
@@ -46,7 +42,7 @@ class _AuthVerificationViewState extends State<AuthVerificationView> {
       icon: Assets.icons.setCode,
       onConfirm: () async {
         if (await LocalAuthService.hasBiometrics()) {
-          AutoRouter.of(context).push(SetPinCodeRoute());
+          AutoRouter.of(context).push(const SetPinCodeRoute());
         } else {
           AppStorage.authByBiometrics = false;
           context.router.replace(const HomeRoute());
@@ -63,7 +59,7 @@ class _AuthVerificationViewState extends State<AuthVerificationView> {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => AuthVerificationBloc(
-        restClient: context.read<IRestClient>(),
+        restClient: context.read<AuthRestClient>(),
       ),
       child: BlocConsumer<AuthVerificationBloc, AuthVerificationBlocState>(
         listener: (context, state) {

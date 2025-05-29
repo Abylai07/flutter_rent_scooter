@@ -19,4 +19,5 @@ class _TextLightColors extends _TextColors {
   final Color secondary = const Color(0xFF6E747A);
   final Color tertiary = const Color(0xFFCFD0D0);
   final Color green = const Color(0xFF849D65);
+  final Color red = const Color(0xFFF85C50);
 }

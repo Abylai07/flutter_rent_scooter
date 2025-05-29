@@ -33,27 +33,24 @@ class BikeScaffold extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: FocusManager.instance.primaryFocus?.unfocus,
-      child: SafeArea(
-        top: topSafeArea,
-        bottom: botSafeArea,
-        child: Scaffold(
-          backgroundColor: bgColor ??
-              context.theme.whenByValue(
-                light: BikeColors.background.light.primary,
-                dark: BikeColors.background.dark.primary,
-              ),
-          appBar: appBar,
-          body: body,
-          bottomNavigationBar: Padding(
-            padding: EdgeInsets.only(
-              bottom: MediaQuery.of(context).viewInsets.bottom,
+    return SafeArea(
+      top: topSafeArea,
+      bottom: botSafeArea,
+      child: Scaffold(
+        backgroundColor: bgColor ??
+            context.theme.whenByValue(
+              light: BikeColors.background.light.primary,
+              dark: BikeColors.background.dark.primary,
             ),
-            child: bottomNavigationBar,
+        appBar: appBar,
+        body: body,
+        bottomNavigationBar: Padding(
+          padding: EdgeInsets.only(
+            bottom: MediaQuery.of(context).viewInsets.bottom,
           ),
-          resizeToAvoidBottomInset: false,
+          child: bottomNavigationBar,
         ),
+        resizeToAvoidBottomInset: false,
       ),
     );
   }

@@ -1,6 +1,6 @@
 import 'package:almabike_shared/almabike_shared.dart';
 import 'package:almabike_shared/core/style/tokens/bike_border_radiuses.dart';
-import 'package:almabike_shared/core/utils/networking/https/models/device_model.dart';
+import 'package:almabike_shared/core/utils/networking/https/models/device/device_model.dart';
 import 'package:almabike_shared/core/utils/networking/https/rest_client.dart';
 import 'package:almabike_shared/core/widgets/core/bike_button.dart';
 import 'package:almabike_shared/core/widgets/core/bike_container.dart';
@@ -155,7 +155,7 @@ class BikeModal extends StatelessWidget {
                 child: BikeButton(
                   title: 'Заблокировать',
                   onPressed: () async {
-                    final result = await RestClient().app.lock(item.id);
+                    final result = await RestClient().device.lock(item.id);
                     showSnackBar(
                       context,
                       name: result['deviceId'].toString(),
@@ -169,7 +169,7 @@ class BikeModal extends StatelessWidget {
                 child: BikeButton(
                   title: 'Разблокировать',
                   onPressed: () async {
-                    final result = await RestClient().app.unlock(item.id);
+                    final result = await RestClient().device.unlock(item.id);
                     showSnackBar(
                       context,
                       name: result['deviceId'].toString(),

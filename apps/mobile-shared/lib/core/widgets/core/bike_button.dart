@@ -48,7 +48,7 @@ class BikeButton extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             SizedBox(
-              child: trailing != null ? Icon(leading, size: 12) : null,
+              child: leading != null ? Icon(leading, size: 12) : null,
             ),
             Center(
               child: BikeText(

@@ -1,16 +1,17 @@
+import 'package:almabike_app/src/core/utils/navigation/route_config.dart';
+import 'package:almabike_app/src/features/pin_code/bloc/refresh/refresh_bloc.dart';
 import 'package:almabike_shared/almabike_shared.dart';
-import 'package:almabike_shared/core/widgets/core/bike_text_widget.dart';
-import 'package:almabike_shared/core/widgets/core/error_snack_bar.dart';
+import 'package:almabike_shared/core/utils/networking/https/rest_client.dart';
 import 'package:almabike_shared/gen/assets.gen.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:local_auth/local_auth.dart';
 
-import '../../core/utils/app_storage.dart';
-import '../../core/utils/navigation/route_config.gr.dart';
+import '../../core/utils/navigation/route_config.dart';
 import '../../core/utils/services/locale_auth_service.dart';
-import 'bloc/pin_code_bloc.dart';
+import 'bloc/pin_code/pin_code_bloc.dart';
 
 @RoutePage()
 class PinCodeView extends StatelessWidget {
@@ -18,8 +19,17 @@ class PinCodeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (_) => PinCodeBloc(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (_) => PinCodeBloc(),
+        ),
+        BlocProvider(
+          create: (_) => RefreshBloc(
+            restClient: RestClient().auth,
+          ),
+        ),
+      ],
       child: const _PinCodeViewContent(),
     );
   }
@@ -33,13 +43,13 @@ class _PinCodeViewContent extends StatefulWidget {
 }
 
 class _PinCodeViewContentState extends State<_PinCodeViewContent> {
-  @override
-  void initState() {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      _authenticateWithBiometrics(context);
-    });
-    super.initState();
-  }
+  // @override
+  // void initState() {
+  //   WidgetsBinding.instance.addPostFrameCallback((_) {
+  //     _authenticateWithBiometrics(context);
+  //   });
+  //   super.initState();
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -64,7 +74,7 @@ class _PinCodeViewContentState extends State<_PinCodeViewContent> {
             padding: const EdgeInsets.all(16.0),
             child: Column(
               children: [
-                const SizedBox(height: 80),
+                SizedBox(height: 64.h),
 
                 // Title text
                 Text(
@@ -72,7 +82,7 @@ class _PinCodeViewContentState extends State<_PinCodeViewContent> {
                   style: BikeTypography.headline.large,
                 ),
 
-                const SizedBox(height: 54),
+                SizedBox(height: 54.h),
 
                 // PIN code dots
                 _buildPinDots(state),
@@ -101,7 +111,7 @@ class _PinCodeViewContentState extends State<_PinCodeViewContent> {
           decoration: BoxDecoration(
             color: state.isError
                 ? BikeColors.main.light.red
-                : index < state.enteredPin.length
+                : state.isSuccess || index < state.enteredPin.length
                     ? BikeColors.main.light.primary
                     : context.theme.whenByValue(
                         light: BikeColors.background.light.grey,
@@ -127,13 +137,14 @@ class _PinCodeViewContentState extends State<_PinCodeViewContent> {
           _buildKeypadRow(['biometric', '0', 'delete'], context),
           const SizedBox(height: 24),
           TextButton(
-            onPressed: () => context.router.push(AuthRoute(showRememberButton: true)),
+            onPressed: () =>
+                context.router.push(AuthRoute(showRememberButton: true)),
             child: Text(
               Localization.of(context).forgotPasscode,
               style: BikeTypography.body.large,
             ),
           ),
-          const SizedBox(height: 50),
+          SafeArea(child: SizedBox(height: 16.h)),
         ],
       ),
     );
@@ -161,30 +172,33 @@ class _PinCodeViewContentState extends State<_PinCodeViewContent> {
                       ? Assets.icons.faceId.svg(
                           height: 24,
                           width: 24,
-                          colorFilter: ColorFilter.mode(
-                              context.theme.whenByValue(
-                                  light: BikeColors.icon.light.black,
-                                  dark: BikeColors.icon.dark.white),
-                              BlendMode.srcIn))
+                          colorFilter: context.svgColor(
+                            light: BikeColors.icon.light.black,
+                            dark: BikeColors.icon.dark.white,
+                          ),
+                        )
                       : Assets.icons.touchId.svg(
                           height: 24,
                           width: 24,
-                          colorFilter: ColorFilter.mode(
-                              context.theme.whenByValue(
-                                  light: BikeColors.icon.light.black,
-                                  dark: BikeColors.icon.dark.white),
-                              BlendMode.srcIn)),
+                          colorFilter: context.svgColor(
+                            light: BikeColors.icon.light.black,
+                            dark: BikeColors.icon.dark.white,
+                          ),
+                        ),
                 );
               });
         } else if (key == 'delete') {
           return IconButton(
             padding: const EdgeInsets.all(12),
             onPressed: () => bloc.add(DigitRemoved()),
-            icon: Assets.icons.delete.svg(height: 24, width: 24, colorFilter: ColorFilter.mode(
-                context.theme.whenByValue(
-                    light: BikeColors.icon.light.black,
-                    dark: BikeColors.icon.dark.white),
-                BlendMode.srcIn)),
+            icon: Assets.icons.delete.svg(
+                height: 24,
+                width: 24,
+                colorFilter: ColorFilter.mode(
+                    context.theme.whenByValue(
+                        light: BikeColors.icon.light.black,
+                        dark: BikeColors.icon.dark.white),
+                    BlendMode.srcIn)),
           );
         } else {
           return IconButton(
@@ -208,6 +222,7 @@ class _PinCodeViewContentState extends State<_PinCodeViewContent> {
     final isVerified = await LocalAuthService.verifyCode(enteredPin);
 
     if (isVerified) {
+      isAuthenticated = true;
       context.router.replaceAll([const HomeRoute()]);
     } else {
       bloc.add(PinError());
@@ -220,6 +235,7 @@ class _PinCodeViewContentState extends State<_PinCodeViewContent> {
     );
 
     if (authed) {
+      isAuthenticated = true;
       context.router.replaceAll([const HomeRoute()]);
     }
   }

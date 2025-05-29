@@ -8,7 +8,7 @@ class _StrokeColors {
 }
 
 class _StrokeDarkColors extends _StrokeColors {
-  final Color main = const Color(0xFF3A3A3A);
+  final Color main = const Color(0xFF282A2D);
 }
 
 class _StrokeLightColors extends _StrokeColors {
