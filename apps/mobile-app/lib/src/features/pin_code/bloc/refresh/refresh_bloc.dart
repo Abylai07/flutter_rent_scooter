@@ -15,12 +15,17 @@ class RefreshBloc
       await event.when(
         refresh: () async {
           try {
-            final result = await restClient.refresh('', 'mobile');
-            isAuthenticated = true;
-            AppStorage.accessToken = result.accessToken;
-            AppStorage.refreshToken = result.refreshToken;
+            final refresh = AppStorage.refreshToken;
+            if(refresh != null){
+              final result = await restClient.refresh(refresh, 'mobile_client');
+              isAuthenticated = true;
+              AppStorage.accessToken = result.accessToken;
+              AppStorage.refreshToken = result.refreshToken;
 
-            emit(const RefreshBlocState.success());
+              emit(const RefreshBlocState.success());
+            } else {
+              emit(const RefreshBlocState.error(message: 'No Refresh Token'));
+            }
           } catch (e) {
             emit(RefreshBlocState.error(message: e.toString()));
           }

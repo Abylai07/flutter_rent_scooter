@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../core/utils/services/locale_auth_service.dart';
+import '../auth/bloc/auth_bloc.dart';
 import '../pin_code/widgets/show_biometric_alert.dart';
 
 @RoutePage()
@@ -42,7 +43,7 @@ class _AuthVerificationViewState extends State<AuthVerificationView> {
       icon: Assets.icons.setCode,
       onConfirm: () async {
         if (await LocalAuthService.hasBiometrics()) {
-          AutoRouter.of(context).push(const SetPinCodeRoute());
+          AutoRouter.of(context).replace(const SetPinCodeRoute());
         } else {
           AppStorage.authByBiometrics = false;
           context.router.replace(const HomeRoute());
@@ -50,22 +51,30 @@ class _AuthVerificationViewState extends State<AuthVerificationView> {
       },
       onCancel: () {
         AppStorage.authByBiometrics = false;
-        context.router.replace(const HomeRoute());
+        context.router.replace(const VerificationStepOneRoute());
       },
     );
   }
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => AuthVerificationBloc(
-        restClient: context.read<AuthRestClient>(),
-      ),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => AuthVerificationBloc(
+            restClient: context.read<AuthRestClient>(),
+          ),
+        ),
+        BlocProvider(
+          create: (context) =>
+              AuthBloc(restClient: context.read<AuthRestClient>()),
+        ),
+      ],
       child: BlocConsumer<AuthVerificationBloc, AuthVerificationBlocState>(
         listener: (context, state) {
           state.whenOrNull(
             success: () {
-              AutoRouter.of(context).replace(const HomeRoute());
+              _successCode();
             },
           );
         },
@@ -96,17 +105,33 @@ class _AuthVerificationViewState extends State<AuthVerificationView> {
                     },
                   ),
                 ),
-                SizedBox.shrink()
+                const SizedBox.shrink()
               ],
             ),
-            bottomNavigationBar: SafeArea(
-              child: Padding(
-                padding: const EdgeInsets.all(16),
-                child: BikeButton(
-                  title: Localization.of(context).get_code,
-                  onPressed: _successCode,
-                ),
-              ),
+            bottomNavigationBar: BlocConsumer<AuthBloc, AuthBlocState>(
+              listener: (context, state) {
+                state.whenOrNull(error: () {
+                  showSnackBar(context,
+                      'PIN-код уже был отправлен. Пожалуйста, подождите перед повторной попыткой.');
+                });
+              },
+              builder: (context, state) {
+                return SafeArea(
+                  child: Padding(
+                    padding: const EdgeInsets.all(16),
+                    child: BikeButton(
+                      title: Localization.of(context).get_code,
+                      onPressed: () {
+                        context.read<AuthBloc>().add(
+                              AuthBlocEvent.auth(
+                                phone: widget.phone,
+                              ),
+                            );
+                      },
+                    ),
+                  ),
+                );
+              },
             ),
           );
         },

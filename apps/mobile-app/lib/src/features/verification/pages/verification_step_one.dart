@@ -105,7 +105,7 @@ class VerificationStepOneView extends StatelessWidget {
                           BikeContainer(
                             color: context.theme.whenByValue(
                               light: BikeColors.background.light.lightGray,
-                              dark: BikeColors.background.light.lightGray,
+                              dark: BikeColors.background.dark.lightGray,
                             ),
                             borderRadius: BikeBorderRadiuses.radius16,
                             padding: const EdgeInsets.all(16),
@@ -114,7 +114,7 @@ class VerificationStepOneView extends StatelessWidget {
                                 BikeContainer(
                                     color: context.theme.whenByValue(
                                       light: BikeColors.background.light.grey,
-                                      dark: BikeColors.background.light.grey,
+                                      dark: BikeColors.background.dark.grey,
                                     ),
                                     shape: BoxShape.circle,
                                     padding: const EdgeInsets.all(8),

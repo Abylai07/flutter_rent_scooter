@@ -122,7 +122,7 @@ class VerificationStepTwoView extends StatelessWidget {
                         BikeContainer(
                             color: context.theme.whenByValue(
                               light: BikeColors.background.light.lightGray,
-                              dark: BikeColors.background.light.lightGray,
+                              dark: BikeColors.background.darkgit.lightGray,
                             ),
                             borderRadius: BikeBorderRadiuses.radius16,
                             padding: const EdgeInsets.all(16),
@@ -131,7 +131,7 @@ class VerificationStepTwoView extends StatelessWidget {
                                 BikeContainer(
                                     color: context.theme.whenByValue(
                                       light: BikeColors.background.light.grey,
-                                      dark: BikeColors.background.light.grey,
+                                      dark: BikeColors.background.dark.grey,
                                     ),
                                     shape: BoxShape.circle,
                                     padding: const EdgeInsets.all(8),
@@ -141,7 +141,7 @@ class VerificationStepTwoView extends StatelessWidget {
                                       size: 16,
                                       color: context.theme.whenByValue(
                                         light: BikeColors.icon.light.black,
-                                        dark: BikeColors.icon.light.white,
+                                        dark: BikeColors.icon.dark.white,
                                       ),
                                     )),
                                 Expanded(

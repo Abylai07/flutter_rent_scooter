@@ -47,7 +47,7 @@ class VerificationResultView extends StatelessWidget {
                 circularStrokeCap: CircularStrokeCap.round,
                 backgroundColor: context.theme.whenByValue(
                   light: BikeColors.background.light.grey,
-                  dark: BikeColors.background.light.grey,
+                  dark: BikeColors.background.dark.grey,
                 ),
                 progressColor: BikeColors.main.light.primary,
               ),
