@@ -122,7 +122,7 @@ class VerificationStepTwoView extends StatelessWidget {
                         BikeContainer(
                             color: context.theme.whenByValue(
                               light: BikeColors.background.light.lightGray,
-                              dark: BikeColors.background.darkgit.lightGray,
+                              dark: BikeColors.background.dark.lightGray,
                             ),
                             borderRadius: BikeBorderRadiuses.radius16,
                             padding: const EdgeInsets.all(16),
