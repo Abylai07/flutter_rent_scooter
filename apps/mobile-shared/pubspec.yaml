@@ -1,5 +1,5 @@
-name: almabike_shared
-description: "Almabike shared project"
+name: mobility_hub_shared
+description: "Mobility Hub Shared - Common components and utilities"
 
 publish_to: "none"
 
@@ -40,6 +40,7 @@ dependencies:
   freezed: ^2.5.8
   freezed_annotation: ^2.4.4
   pretty_dio_logger: ^1.4.0
+  flutter_sliding_toast: ^1.4.3
 
 
   # ui

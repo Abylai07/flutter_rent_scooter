@@ -1,5 +1,5 @@
-name: almabike_admin
-description: "A new Flutter project."
+name: mobility_hub_admin
+description: "Mobility Hub Admin - Fleet Management Dashboard"
 
 publish_to: "none"
 
@@ -12,7 +12,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  almabike_shared: 0.0.1+1
+  mobility_hub_shared: 0.0.1+1
   auto_route: ^9.3.0+1
   provider: ^6.1.2
   rename_app: ^1.6.2
@@ -20,7 +20,7 @@ dependencies:
 
 
 dependency_overrides:
-  almabike_shared:
+  mobility_hub_shared:
     path: ../mobile-shared
 
 dev_dependencies:

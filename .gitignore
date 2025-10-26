@@ -893,5 +893,12 @@ packages/gis-map-plugin/ios/Assets/dgissdk.key
 **/key.properties
 packages/gis-map-plugin/android/src/main/assets/dgissdk.key
 
+# Environment and API Keys
+.env
+.env.local
+.env.*.local
+**/dgissdk.key
+!**/dgissdk.key.example
+
 # unused auto generated files
 **/**/devtools_options.yaml

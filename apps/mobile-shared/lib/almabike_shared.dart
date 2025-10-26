@@ -15,6 +15,7 @@ export 'core/widgets/core/bike_phone_widget.dart';
 export 'core/widgets/core/bike_scaffold.dart';
 export 'core/widgets/core/bike_text_field.dart';
 export 'core/widgets/core/bike_outline_button.dart';
+export 'core/widgets/core/bike_popup_widgets.dart';
 export 'core/widgets/core/bike_checkbox.dart';
 export 'core/widgets/core/bike_circle_icon_widget.dart';
 export 'core/style/tokens/bike_icons.dart';

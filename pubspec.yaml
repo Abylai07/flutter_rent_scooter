@@ -1,4 +1,4 @@
-name: almabike
+name: mobility_hub
 
 environment:
   sdk: ^3.6.0

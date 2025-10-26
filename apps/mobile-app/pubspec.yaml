@@ -1,5 +1,5 @@
-name: almabike_app
-description: "Almabike app project"
+name: mobility_hub_app
+description: "Mobility Hub - Vehicle Sharing Platform"
 
 publish_to: "none"
 
@@ -38,7 +38,7 @@ dependencies:
   freezed: ^2.5.8
   freezed_annotation: ^2.4.4
 
-  almabike_shared:
+  mobility_hub_shared:
     path: ../mobile-shared
 
 

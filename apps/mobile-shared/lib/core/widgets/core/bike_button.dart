@@ -9,6 +9,7 @@ class BikeButton extends StatelessWidget {
     this.onPressed,
     this.leading,
     this.trailing,
+    this.isLoading = false,
     this.size = const BikeButtonSizeL(),
   });
 
@@ -16,6 +17,7 @@ class BikeButton extends StatelessWidget {
   final VoidCallback? onPressed;
   final IBikeButtonSize size;
   final String title;
+  final bool isLoading;
   final IconData? trailing;
 
   @override
@@ -44,23 +46,29 @@ class BikeButton extends StatelessWidget {
       onPressed: onPressed,
       child: SizedBox(
         height: size.height,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            SizedBox(
-              child: leading != null ? Icon(leading, size: 12) : null,
-            ),
-            Center(
-              child: BikeText(
-                title,
-                style: size.textStyle,
+        child: isLoading
+            ? const SizedBox(
+                height: 22.0,
+                width: 22.0,
+                child: CircularProgressIndicator(),
+              )
+            : Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  SizedBox(
+                    child: leading != null ? Icon(leading, size: 12) : null,
+                  ),
+                  Center(
+                    child: BikeText(
+                      title,
+                      style: size.textStyle,
+                    ),
+                  ),
+                  SizedBox(
+                    child: trailing != null ? Icon(trailing, size: 12) : null,
+                  ),
+                ],
               ),
-            ),
-            SizedBox(
-              child: trailing != null ? Icon(trailing, size: 12) : null,
-            ),
-          ],
-        ),
       ),
     );
   }

@@ -1,22 +1,30 @@
 import 'package:almabike_shared/almabike_shared.dart';
-import 'package:almabike_shared/core/utils/constants/bike_constants.dart';
+import 'package:almabike_shared/core/config/env_config.dart';
 import 'package:dio/dio.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
-/// This is a class that contains the Dio instances to be used in the API calls.
 class RestClient {
-  final dio = Dio(BaseOptions(
-    baseUrl: BikeConstants.baseUrl,
-  ))
-    ..interceptors.addAll(
+  final EnvConfig _config;
+
+  RestClient({EnvConfig? config}) : _config = config ?? EnvConfig.fromEnvironment();
+
+  late final Dio dio = Dio(
+    BaseOptions(
+      baseUrl: _config.apiBaseUrl,
+      connectTimeout: Duration(seconds: _config.apiTimeout),
+      receiveTimeout: Duration(seconds: _config.apiTimeout),
+      sendTimeout: Duration(seconds: _config.apiTimeout),
+    ),
+  )..interceptors.addAll(
       [
-        PrettyDioLogger(
-          requestHeader: true,
-          requestBody: true,
-          request: true,
-          responseBody: true,
-          responseHeader: true,
-        ),
+        if (_config.debugMode)
+          PrettyDioLogger(
+            requestHeader: true,
+            requestBody: true,
+            request: true,
+            responseBody: true,
+            responseHeader: true,
+          ),
         InterceptorsWrapper(
           onRequest: (options, handler) async {
             final needAuth = _requiresAuth(options.path, options.method);

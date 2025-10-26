@@ -1,4 +1,4 @@
-name: almabike
+name: mobility_hub
 
 packages:
   - apps/**
