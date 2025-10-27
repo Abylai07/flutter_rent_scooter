@@ -29,6 +29,14 @@ mono-repo/
 - 🧭 Route optimization (TSP algorithm)
 - 📍 Priority-based sorting (urgency × proximity)
 
+## 📱 Screenshots
+
+<div align="center">
+  <img src="screenshots/bike selected.png" width="250" alt="Bike Selection"/>
+  <img src="screenshots/trip started.png" width="250" alt="Trip Started"/>
+  <img src="screenshots/trip on pause.png" width="250" alt="Trip Paused"/>
+</div>
+
 ## 🛠️ Tech Stack
 
 ```yaml
